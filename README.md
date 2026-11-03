@@ -1,6 +1,8 @@
 # Portfólio de Ryan Lucas Cardoso
 
-Site estático em Astro + Tailwind, no formato Resume as Code: `src/data/resume.json` é a única fonte do site e do PDF.
+**No ar:** [ryanlucascardoso.pages.dev](https://ryanlucascardoso.pages.dev) · [versão em inglês](https://ryanlucascardoso.pages.dev/en/)
+
+Site estático e bilíngue em Astro + Tailwind, no formato Resume as Code: um arquivo de dados por idioma gera o site e o currículo em PDF. Sem JavaScript no navegador, com CSP rígida e nota 100 no Lighthouse.
 
 ## Comandos
 
