@@ -1,0 +1,7 @@
+---
+const { tags } = Astro.props as { tags: string[] };
+---
+
+<ul class="flex flex-wrap gap-1.5">
+  {tags.map((tag) => <li class="bg-edge px-2 py-0.5 text-small text-ink">{tag}</li>)}
+</ul>

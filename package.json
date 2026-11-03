@@ -1,0 +1,25 @@
+{
+  "name": "ryan-lucas-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:data": "node scripts/check-data.mjs",
+    "resume": "node scripts/generate-resume.mjs && node scripts/generate-clouds.mjs",
+    "prebuild": "npm run check:data && npm run resume",
+    "build": "astro build",
+    "dev": "npm run check:data && npm run resume && astro dev",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/hanken-grotesk": "^5.3.0",
+    "@napi-rs/canvas": "^1.1.0",
+    "@react-pdf/renderer": "^4.9.0",
+    "@tailwindcss/vite": "^4.3.4",
+    "astro": "^7.4.5",
+    "computer-modern": "^0.1.3",
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.3.1",
+    "tailwindcss": "^4.3.4"
+  }
+}

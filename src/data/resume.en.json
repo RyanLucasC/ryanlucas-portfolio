@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "siteUrl": "https://ryanlucascardoso.pages.dev",
+    "pdfFile": "resume-ryan-lucas-cardoso.pdf"
+  },
+  "person": {
+    "displayName": "RYAN LUCAS CARDOSO",
+    "fullName": "Ryan Lucas Cardoso Mudesto Oliveira",
+    "headline": "Data Engineering · Cloud · Software",
+    "tagline": "Student at UEM, in Maringá, Brazil.",
+    "location": "Maringá, Brazil",
+    "footer": "UEM · Maringá, Brazil · Software Engineering",
+    "seeking": "Looking for an internship in the field."
+  },
+  "contact": {
+    "email": "ryan.lucascardoso3@gmail.com",
+    "availability": "Open to projects, internships and collaborations.",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "handle": "ryanlucascardoso",
+        "url": "https://www.linkedin.com/in/ryanlucascardoso/"
+      },
+      {
+        "label": "GitHub",
+        "handle": "RyanLucasC",
+        "url": "https://github.com/RyanLucasC"
+      }
+    ]
+  },
+  "about": {
+    "summary": [
+      "Software Engineering undergraduate at the State University of Maringá (UEM), Brazil, focused on data and cloud computing. I combine a technical view of technology with its practical use in business and project management.",
+      "At Main - Soluções em Software, I see up close how a technology service comes to life: from the first client conversation to project delivery.",
+      "At RR Transportes e Terraplanagem, I bring that perspective to operations, turning day-to-day routines into internal systems and management dashboards.",
+      "I look for challenges that demand analytical thinking and connect technology to real results, with the goal of becoming a data engineer."
+    ],
+    "facts": [
+      {
+        "label": "Focus",
+        "value": "Data and Cloud"
+      },
+      {
+        "label": "Based in",
+        "value": "Maringá, Brazil"
+      },
+      {
+        "label": "Education",
+        "value": "UEM, 2026–2030"
+      }
+    ]
+  },
+  "stack": [
+    {
+      "group": "Programming languages",
+      "items": [
+        "Python",
+        "JavaScript",
+        "C",
+        "HTML / CSS"
+      ]
+    },
+    {
+      "group": "Data and backend",
+      "items": [
+        "FastAPI",
+        "SQLite",
+        "PostgreSQL",
+        "Data Engineering"
+      ]
+    },
+    {
+      "group": "Web and design",
+      "items": [
+        "React",
+        "Tailwind CSS",
+        "Figma"
+      ]
+    },
+    {
+      "group": "Cloud and tools",
+      "items": [
+        "AWS",
+        "Linux",
+        "Git",
+        "GitHub",
+        "Claude AI"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Logistics ERP",
+      "context": "RR Transportes e Terraplanagem",
+      "summary": "System that runs the operation of a trucking company: trips, costs, freight and maintenance, with a dashboard for the manager and an app for the driver that works without signal.",
+      "highlights": [
+        "Financial result per trip, with manager review, commissions and fuel, maintenance and ad-hoc costs backed by receipt photos",
+        "Freight compared to the legal minimum rate (ANTT), with versioned tables updated from the official calculator",
+        "Expiration and mileage-based maintenance alerts, with push notifications",
+        "Security: scrypt-hashed passwords, revocable sessions, login attempt lockout and a strict CSP",
+        "Change auditing, encrypted daily backups and weekly restore tests",
+        "Automated tests (pytest and Playwright) and CI on GitHub Actions, with dependency scanning"
+      ],
+      "architectureTitle": "Production architecture, on a Linux VPS",
+      "architecture": [
+        {
+          "layer": "Clients",
+          "items": [
+            "Web dashboard (manager)",
+            "Offline PWA (driver)"
+          ]
+        },
+        {
+          "layer": "Edge",
+          "items": [
+            "Caddy (HTTPS)"
+          ]
+        },
+        {
+          "layer": "API",
+          "items": [
+            "FastAPI",
+            "systemd"
+          ]
+        },
+        {
+          "layer": "Data",
+          "items": [
+            "SQLite",
+            "Alembic migrations"
+          ]
+        }
+      ],
+      "tags": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "Alembic",
+        "JavaScript",
+        "Tailwind CSS"
+      ],
+      "status": "done",
+      "deployment": "In production on a Linux VPS, with Caddy (HTTPS) and systemd"
+    },
+    {
+      "name": "This portfolio",
+      "context": "Resume as Code",
+      "summary": "Bilingual site and PDF resume generated from a single data file per language. Updating the portfolio means editing that file: the build validates the content and generates everything else.",
+      "highlights": [
+        "Build-time validation: phone numbers, addresses, HTML, credentials and non-HTTPS links block publishing",
+        "LaTeX-style PDF resume generated automatically, with an always up-to-date preview on the site",
+        "ASCII clouds generated by code: lit 3D volumes with per-character color",
+        "No JavaScript on the site, with a strict CSP, security headers and a metadata-free photo",
+        "Lighthouse score of 100 for performance, accessibility, best practices and SEO"
+      ],
+      "architectureTitle": "How the site is generated",
+      "architecture": [
+        {
+          "layer": "Source",
+          "items": [
+            "resume.json",
+            "resume.en.json"
+          ]
+        },
+        {
+          "layer": "Validation",
+          "items": [
+            "check-data (Node.js)"
+          ]
+        },
+        {
+          "layer": "Generation",
+          "items": [
+            "Astro",
+            "react-pdf",
+            "Canvas"
+          ]
+        },
+        {
+          "layer": "Output",
+          "items": [
+            "Static site",
+            "PDF"
+          ]
+        }
+      ],
+      "tags": [
+        "Astro",
+        "Tailwind CSS",
+        "Node.js",
+        "React"
+      ],
+      "status": "active"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Sales and Project Assistant",
+      "company": "Main - Soluções em Software (internship)",
+      "location": "Maringá, Brazil",
+      "period": "Sep 2026 – present",
+      "highlights": [
+        "Active B2B client prospecting and preparation of commercial proposals",
+        "Negotiation of technology projects",
+        "Requirements structuring and project execution tracking"
+      ]
+    },
+    {
+      "role": "Operations Administrative Assistant",
+      "company": "RR Transportes e Terraplanagem LTDA",
+      "location": "Comodoro, Brazil (remote)",
+      "period": "Aug 2026 – present",
+      "highlights": [
+        "Support for the daily management of transport and heavy machinery operations",
+        "Software design and web architecture for internal systems and dashboards covering freight, fueling and operating costs"
+      ]
+    },
+    {
+      "role": "Administrative Assistant",
+      "company": "Transportadora Modesto LTDA",
+      "location": "Comodoro, Brazil",
+      "period": "Dec 2022 – Feb 2026",
+      "highlights": [
+        "Review of transport tax documents (CT-e, MDF-e and delivery receipts) for daily closing and billing",
+        "Vehicle entry and exit control in spreadsheets, logging times, routes and incidents for fleet management",
+        "Inspection and upkeep of IT equipment: computers, printers and office devices",
+        "Organization of tax and personnel records for internal audits and lookups"
+      ]
+    },
+    {
+      "role": "Administrative Assistant",
+      "company": "Modesto Comércio de Bebidas LTDA",
+      "location": "Comodoro, Brazil",
+      "period": "Jul 2021 – Jul 2022",
+      "highlights": [
+        "Review of invoices and sales orders before billing",
+        "Maintenance of customer and supplier records in the system",
+        "Control spreadsheets and order organization between sales and the warehouse"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "course": "Bachelor's in Software Engineering",
+      "school": "State University of Maringá (UEM)",
+      "period": "2026 – 2030",
+      "place": "Maringá, Brazil"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Portuguese",
+      "level": "native"
+    },
+    {
+      "name": "English",
+      "level": "advanced (technical reading)"
+    },
+    {
+      "name": "Spanish",
+      "level": "intermediate"
+    }
+  ],
+  "goals": [
+    {
+      "title": "RR Transportes logistics ERP in production",
+      "status": "done"
+    },
+    {
+      "title": "AWS Cloud Practitioner certification",
+      "status": "doing"
+    },
+    {
+      "title": "AI and Machine Learning fundamentals",
+      "status": "doing"
+    },
+    {
+      "title": "First Data Engineering pipelines",
+      "status": "queued"
+    },
+    {
+      "title": "Cloud tech community at UEM",
+      "status": "queued"
+    },
+    {
+      "title": "Open source projects on GitHub",
+      "status": "queued"
+    },
+    {
+      "title": "PIBIC undergraduate research",
+      "status": "queued"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "status": "doing"
+    },
+    {
+      "name": "AWS Certified AI Practitioner",
+      "status": "queued"
+    },
+    {
+      "name": "AWS Certified Data Engineer – Associate",
+      "status": "queued"
+    },
+    {
+      "name": "AWS Certified Solutions Architect – Associate",
+      "status": "queued"
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "Phase 1",
+      "topic": "Linux, Cloud and AI",
+      "courses": [
+        "LFS101 Linux",
+        "AWS Cloud Practitioner Essentials",
+        "SimuLearn Cloud Practitioner",
+        "Claude Academy"
+      ],
+      "status": "doing"
+    },
+    {
+      "phase": "Phase 2",
+      "topic": "AWS fundamentals",
+      "courses": [
+        "Cloud Essentials Knowledge Badge"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Phase 3",
+      "topic": "Data",
+      "courses": [
+        "Databricks Fundamentals",
+        "dbt Fundamentals",
+        "Cisco Data Analytics Essentials"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Phase 4",
+      "topic": "Artificial Intelligence",
+      "courses": [
+        "SimuLearn AI Practitioner",
+        "Databricks Generative AI",
+        "Databricks AI Agent"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Phase 5",
+      "topic": "DevOps and Security",
+      "courses": [
+        "LFS158 Kubernetes",
+        "LFS162 DevOps and SRE",
+        "Cisco Cybersecurity"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Phase 6",
+      "topic": "AWS practice",
+      "courses": [
+        "Cloud Quest Cloud Practitioner",
+        "Cloud Quest Gen AI Practitioner"
+      ],
+      "status": "queued"
+    }
+  ],
+  "softSkills": [
+    "Problem Solving",
+    "Organization and Planning",
+    "Clear Communication",
+    "Teamwork",
+    "Fast Learning",
+    "Proactivity"
+  ]
+}

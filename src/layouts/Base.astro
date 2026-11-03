@@ -1,0 +1,45 @@
+---
+import '@fontsource/hanken-grotesk/latin-400.css';
+import '@fontsource/hanken-grotesk/latin-500.css';
+import '../styles/global.css';
+import pt from '../data/resume.json';
+import en from '../data/resume.en.json';
+import { UI } from '../lib/i18n.mjs';
+
+const { lang = 'pt', title: pageTitle } = Astro.props as { lang?: 'pt' | 'en'; title?: string };
+const resume = lang === 'en' ? en : pt;
+const t = UI[lang];
+const { person, meta } = resume;
+const title = pageTitle ?? `${person.fullName} | ${t.title}`;
+const description = `${person.tagline} ${person.headline}.`;
+const url = (path: string) => new URL(path, meta.siteUrl).href;
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d1117" />
+    <link rel="canonical" href={url(t.path)} />
+    <link rel="alternate" hreflang="pt-BR" href={url(UI.pt.path)} />
+    <link rel="alternate" hreflang="en" href={url(UI.en.path)} />
+    <link rel="alternate" hreflang="x-default" href={url(UI.pt.path)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url(t.path)} />
+    <meta property="og:locale" content={t.locale} />
+    <meta property="og:image" content={url('/generated/og.jpg')} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">{t.skip}</a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,344 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-canvas: #0d1117;
+  --color-surface: #161b22;
+  --color-edge: #30363d;
+  --color-ink: #e6edf3;
+  --color-body: #c9d1d9;
+  --color-muted: #8b949e;
+  --color-accent: #ab7df8;
+
+  --font-sans: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', Consolas, monospace; /* taste-skill-ignore: só em código real */
+
+  --text-small: 1rem;
+  --text-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --text-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --text-head: clamp(2.25rem, 6vw, 5.5rem);
+  --text-display: min(15.4vw, 36svh);
+
+  --ease-out-strong: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
+    background: var(--color-canvas);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: var(--text-head);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+  }
+
+  a,
+  summary {
+    transition:
+      color 160ms ease,
+      background-color 160ms ease;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-canvas);
+  }
+
+  /* Sobre fundo roxo, roxo some: a seleção inverte. Dentro das faixas escuras do Contato, volta ao roxo. */
+  .bg-accent::selection,
+  .bg-accent ::selection {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  .bg-canvas::selection,
+  .bg-canvas ::selection {
+    background: var(--color-accent);
+    color: var(--color-canvas);
+  }
+}
+
+@layer components {
+  .frame {
+    padding-inline: clamp(1rem, 3.4vw, 3rem);
+  }
+
+  .section {
+    padding-block: clamp(4.5rem, 11vw, 10rem);
+  }
+
+  .skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 10;
+    padding: 0.75rem 1rem;
+    background: var(--color-accent);
+    color: var(--color-canvas);
+    font-weight: 500;
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus {
+    transform: none;
+  }
+
+  .text-link {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.2em;
+  }
+
+  .text-link:hover {
+    color: var(--color-accent);
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-small);
+    text-align: left;
+  }
+
+  .data-table caption {
+    text-align: left;
+    font-size: var(--text-lead);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    padding-bottom: 1rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.875rem 1.25rem 0.875rem 0;
+    vertical-align: top;
+  }
+
+  .data-table thead th {
+    color: var(--color-muted);
+    font-weight: 400;
+    padding-block: 0 0.625rem;
+  }
+
+  .data-table tbody tr {
+    border-top: 1px solid var(--color-edge);
+  }
+
+  .data-table tbody th {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  .data-table td {
+    color: var(--color-body);
+  }
+
+  .data-table .cell-end {
+    padding-right: 0;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* No celular cada linha vira um bloco: a tabela não precisa de rolagem lateral. */
+  @media (max-width: 40rem) {
+    .data-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    .data-table,
+    .data-table tbody,
+    .data-table tr,
+    .data-table th,
+    .data-table td {
+      display: block;
+    }
+
+    .data-table caption {
+      display: block;
+    }
+
+    .data-table tbody tr {
+      padding-block: 0.75rem;
+    }
+
+    .data-table th,
+    .data-table td,
+    .data-table .cell-end {
+      padding: 0.125rem 0;
+      text-align: left;
+      white-space: normal;
+    }
+  }
+
+  .ascii-sky {
+    overflow: hidden;
+    font-family: var(--font-mono); /* taste-skill-ignore: arte ASCII real */
+    font-size: 0.8125rem;
+    line-height: 1.15;
+  }
+
+  .ascii-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .ascii-unit {
+    width: clamp(18rem, 34vw, 30rem);
+    margin-right: clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .ascii-unit:nth-child(2n) {
+    margin-top: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .ascii-unit img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Sobe até a base da nuvem, que termina em 92% da altura da imagem. */
+  .ascii-rain {
+    display: flex;
+    justify-content: space-between;
+    height: 6.9em;
+    margin-top: -6%;
+    padding-inline: 18%;
+    overflow: hidden;
+  }
+
+  .rain-ec2 {
+    color: #f08ad6;
+  }
+
+  .rain-s3 {
+    color: #38c8f0;
+  }
+
+  .rain-lambda {
+    color: #ff6fa8;
+  }
+
+  .rain-rds {
+    color: #7d8cff;
+  }
+}
+
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+/* Só deslocamento: o conteúdo nunca fica invisível, nem fora da tela nem na impressão. */
+@keyframes rise {
+  from {
+    transform: translateY(2rem);
+  }
+}
+
+@keyframes sky-drift {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bit-fall {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .line > span {
+    animation: line-up 900ms var(--ease-out-strong) both;
+  }
+
+  .line + .line > span {
+    animation-delay: 110ms;
+  }
+
+  .hero-foot {
+    animation: fade-up 600ms var(--ease-out-strong) 420ms both;
+  }
+
+  .ascii-track {
+    animation: sky-drift 80s linear infinite;
+  }
+
+  .ascii-rain pre {
+    animation: bit-fall 7s linear infinite;
+  }
+
+  .ascii-rain pre:nth-child(2n) {
+    animation-duration: 9s;
+    animation-delay: -3s;
+  }
+
+  .ascii-rain pre:nth-child(3n) {
+    animation-duration: 11s;
+    animation-delay: -6s;
+  }
+
+  /* Só CSS: sem suporte a view(), o conteúdo aparece parado e completo. */
+  @supports (animation-timeline: view()) {
+    .rise {
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-range: entry 0% entry calc(45% + var(--stagger, 0) * 12%);
+    }
+
+    /* Regra separada: o minificador junta tudo num `animation:` que o Chrome rejeita. */
+    .rise:not(#_) {
+      animation-timeline: view();
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,15 @@
+---
+import { STATUS } from '../lib/status.mjs';
+
+const { status, lang = 'pt' } = Astro.props as { status: string; lang?: 'pt' | 'en' };
+const { label, tone } = STATUS[status as keyof typeof STATUS];
+const tones = {
+  accent: 'bg-accent text-canvas',
+  light: 'bg-body text-canvas',
+  dark: 'bg-edge text-ink',
+};
+---
+
+<span class:list={['inline-block px-2 py-0.5 text-small font-medium whitespace-nowrap', tones[tone as keyof typeof tones]]}>
+  {label[lang]}
+</span>

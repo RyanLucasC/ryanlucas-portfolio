@@ -1,0 +1,18 @@
+---
+interface Props {
+  caption?: string;
+  headers: string[];
+}
+
+const { caption, headers } = Astro.props;
+---
+
+<table class="data-table">
+  {caption && <caption>{caption}</caption>}
+  <thead>
+    <tr>{headers.map((header) => <th scope="col">{header}</th>)}</tr>
+  </thead>
+  <tbody>
+    <slot />
+  </tbody>
+</table>

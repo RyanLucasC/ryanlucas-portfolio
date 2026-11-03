@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "siteUrl": "https://ryanlucascardoso.pages.dev",
+    "pdfFile": "curriculo-ryan-lucas-cardoso.pdf"
+  },
+  "person": {
+    "displayName": "RYAN LUCAS CARDOSO",
+    "fullName": "Ryan Lucas Cardoso Mudesto Oliveira",
+    "headline": "Engenharia de Dados · Cloud · Software",
+    "tagline": "Estudante da UEM, em Maringá, PR.",
+    "location": "Maringá, PR",
+    "footer": "UEM · Maringá, PR · Engenharia de Software",
+    "seeking": "Em busca de estágio na área."
+  },
+  "contact": {
+    "email": "ryan.lucascardoso3@gmail.com",
+    "availability": "Aberto a projetos, estágios e colaborações.",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "handle": "ryanlucascardoso",
+        "url": "https://www.linkedin.com/in/ryanlucascardoso/"
+      },
+      {
+        "label": "GitHub",
+        "handle": "RyanLucasC",
+        "url": "https://github.com/RyanLucasC"
+      }
+    ]
+  },
+  "about": {
+    "summary": [
+      "Graduando em Engenharia de Software pela Universidade Estadual de Maringá (UEM), com foco em dados e computação em nuvem. Uno a visão técnica da tecnologia à aplicação prática em negócios e gestão de projetos.",
+      "Na Main - Soluções em Software, vejo de perto como um serviço de tecnologia nasce: da conversa com o cliente à entrega do projeto.",
+      "Na RR Transportes e Terraplanagem, levo esse olhar para a operação, transformando rotinas do dia a dia em sistemas internos e painéis de gestão.",
+      "Busco desafios que exijam pensamento analítico e conectem tecnologia a resultados reais, com o objetivo de me tornar engenheiro de dados."
+    ],
+    "facts": [
+      {
+        "label": "Foco",
+        "value": "Dados e Cloud"
+      },
+      {
+        "label": "Base",
+        "value": "Maringá, PR"
+      },
+      {
+        "label": "Formação",
+        "value": "UEM, 2026–2030"
+      }
+    ]
+  },
+  "stack": [
+    {
+      "group": "Linguagens",
+      "items": [
+        "Python",
+        "JavaScript",
+        "C",
+        "HTML / CSS"
+      ]
+    },
+    {
+      "group": "Dados e backend",
+      "items": [
+        "FastAPI",
+        "SQLite",
+        "PostgreSQL",
+        "Data Engineering"
+      ]
+    },
+    {
+      "group": "Web e design",
+      "items": [
+        "React",
+        "Tailwind CSS",
+        "Figma"
+      ]
+    },
+    {
+      "group": "Cloud e ferramentas",
+      "items": [
+        "AWS",
+        "Linux",
+        "Git",
+        "GitHub",
+        "Claude AI"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "ERP Logístico",
+      "context": "RR Transportes e Terraplanagem",
+      "summary": "Sistema que organiza a operação de uma transportadora: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista, que funciona sem sinal.",
+      "highlights": [
+        "Resultado financeiro por viagem (DRE), com conferência do gestor, comissões e custos de combustível, manutenção e gastos avulsos com foto do recibo",
+        "Frete comparado ao piso mínimo legal (ANTT), com tabelas versionadas e atualizadas pela calculadora oficial",
+        "Alertas de vencimento e de manutenção por km, com notificações push",
+        "Segurança: senhas com scrypt, sessões revogáveis, bloqueio por tentativas e CSP restritiva",
+        "Auditoria de alterações, backup diário cifrado e teste semanal de restauração",
+        "Testes automatizados (pytest e Playwright) e CI no GitHub Actions, com verificação de dependências"
+      ],
+      "architecture": [
+        {
+          "layer": "Clientes",
+          "items": [
+            "Painel web (gestor)",
+            "PWA offline (motorista)"
+          ]
+        },
+        {
+          "layer": "Borda",
+          "items": [
+            "Caddy (HTTPS)"
+          ]
+        },
+        {
+          "layer": "API",
+          "items": [
+            "FastAPI",
+            "systemd"
+          ]
+        },
+        {
+          "layer": "Dados",
+          "items": [
+            "SQLite",
+            "migrações com Alembic"
+          ]
+        }
+      ],
+      "tags": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "Alembic",
+        "JavaScript",
+        "Tailwind CSS"
+      ],
+      "status": "done",
+      "deployment": "Em produção em VPS Linux, com Caddy (HTTPS) e systemd",
+      "architectureTitle": "Arquitetura em produção, em VPS Linux"
+    },
+    {
+      "name": "Este portfólio",
+      "context": "Resume as Code",
+      "summary": "Site bilíngue e currículo em PDF gerados a partir de um único arquivo de dados por idioma. Atualizar o portfólio é editar esse arquivo: o build valida o conteúdo e gera todo o resto.",
+      "highlights": [
+        "Validação no build: telefone, endereço, HTML, credenciais e links sem HTTPS impedem a publicação",
+        "Currículo em PDF no estilo LaTeX, gerado automaticamente, com prévia sempre atualizada no site",
+        "Nuvens em ASCII geradas por código: volumes 3D iluminados, com cor por caractere",
+        "Sem JavaScript no site, com CSP rígida, cabeçalhos de segurança e foto sem metadados",
+        "Nota 100 no Lighthouse em desempenho, acessibilidade, boas práticas e SEO"
+      ],
+      "tags": [
+        "Astro",
+        "Tailwind CSS",
+        "Node.js",
+        "React"
+      ],
+      "status": "active",
+      "architectureTitle": "Como o site é gerado",
+      "architecture": [
+        {
+          "layer": "Fonte",
+          "items": [
+            "resume.json",
+            "resume.en.json"
+          ]
+        },
+        {
+          "layer": "Validação",
+          "items": [
+            "check-data (Node.js)"
+          ]
+        },
+        {
+          "layer": "Geração",
+          "items": [
+            "Astro",
+            "react-pdf",
+            "Canvas"
+          ]
+        },
+        {
+          "layer": "Saída",
+          "items": [
+            "Site estático",
+            "PDF"
+          ]
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Assistente Comercial e de Projetos",
+      "company": "Main - Soluções em Software (estágio)",
+      "location": "Maringá, PR",
+      "period": "set. 2026 – atual",
+      "highlights": [
+        "Prospecção ativa de clientes B2B e elaboração de propostas comerciais",
+        "Negociação de projetos de tecnologia",
+        "Estruturação de requisitos e acompanhamento da execução dos projetos"
+      ]
+    },
+    {
+      "role": "Assistente Administrativo de Operações",
+      "company": "RR Transportes e Terraplanagem LTDA",
+      "location": "Comodoro, MT (remoto)",
+      "period": "ago. 2026 – atual",
+      "highlights": [
+        "Apoio à gestão diária das operações de transporte e maquinário pesado",
+        "Design de software e arquitetura web em sistemas internos e dashboards de fretes, abastecimento e custos operacionais"
+      ]
+    },
+    {
+      "role": "Auxiliar Administrativo",
+      "company": "Transportadora Modesto LTDA",
+      "location": "Comodoro, MT",
+      "period": "dez. 2022 – fev. 2026",
+      "highlights": [
+        "Conferência de documentos fiscais de transporte (CT-e, MDF-e e canhotos de entrega) para o fechamento diário e o faturamento",
+        "Controle de entrada e saída de veículos em planilha, com horários, rotas e ocorrências para a gestão da frota",
+        "Conferência e manutenção do parque de máquinas: computadores, impressoras e equipamentos de escritório",
+        "Organização do arquivo fiscal e de pastas funcionais para consultas e auditorias internas"
+      ]
+    },
+    {
+      "role": "Auxiliar Administrativo",
+      "company": "Modesto Comércio de Bebidas LTDA",
+      "location": "Comodoro, MT",
+      "period": "jul. 2021 – jul. 2022",
+      "highlights": [
+        "Conferência de notas fiscais e pedidos de venda antes do faturamento",
+        "Atualização de cadastros de clientes e fornecedores no sistema",
+        "Planilhas de controle e organização de pedidos entre o comercial e o depósito"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "course": "Engenharia de Software",
+      "school": "Universidade Estadual de Maringá (UEM)",
+      "period": "2026 – 2030",
+      "place": "Maringá, PR"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Português",
+      "level": "nativo"
+    },
+    {
+      "name": "Inglês",
+      "level": "avançado (leitura técnica)"
+    },
+    {
+      "name": "Espanhol",
+      "level": "intermediário"
+    }
+  ],
+  "goals": [
+    {
+      "title": "ERP logístico da RR Transportes em produção",
+      "status": "done"
+    },
+    {
+      "title": "Certificação AWS Cloud Practitioner",
+      "status": "doing"
+    },
+    {
+      "title": "Fundamentos de IA e Machine Learning",
+      "status": "doing"
+    },
+    {
+      "title": "Primeiros pipelines de Engenharia de Dados",
+      "status": "queued"
+    },
+    {
+      "title": "Comunidade tech de cloud na UEM",
+      "status": "queued"
+    },
+    {
+      "title": "Projetos open source no GitHub",
+      "status": "queued"
+    },
+    {
+      "title": "PIBIC",
+      "status": "queued"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "status": "doing"
+    },
+    {
+      "name": "AWS Certified AI Practitioner",
+      "status": "queued"
+    },
+    {
+      "name": "AWS Certified Data Engineer – Associate",
+      "status": "queued"
+    },
+    {
+      "name": "AWS Certified Solutions Architect – Associate",
+      "status": "queued"
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "Fase 01",
+      "topic": "Linux, Cloud e IA",
+      "courses": [
+        "LFS101 Linux",
+        "AWS Cloud Practitioner Essentials",
+        "SimuLearn Cloud Practitioner",
+        "Claude Academy"
+      ],
+      "status": "doing"
+    },
+    {
+      "phase": "Fase 02",
+      "topic": "Fundamentos AWS",
+      "courses": [
+        "Cloud Essentials Knowledge Badge"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Fase 03",
+      "topic": "Dados",
+      "courses": [
+        "Databricks Fundamentals",
+        "dbt Fundamentals",
+        "Cisco Data Analytics Essentials"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Fase 04",
+      "topic": "Inteligência Artificial",
+      "courses": [
+        "SimuLearn AI Practitioner",
+        "Databricks Generative AI",
+        "Databricks AI Agent"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Fase 05",
+      "topic": "DevOps e Segurança",
+      "courses": [
+        "LFS158 Kubernetes",
+        "LFS162 DevOps e SRE",
+        "Cisco Cybersecurity"
+      ],
+      "status": "queued"
+    },
+    {
+      "phase": "Fase 06",
+      "topic": "Treino AWS",
+      "courses": [
+        "Cloud Quest Cloud Practitioner",
+        "Cloud Quest Gen AI Practitioner"
+      ],
+      "status": "queued"
+    }
+  ],
+  "softSkills": [
+    "Resolução de Problemas",
+    "Organização e Planejamento",
+    "Comunicação Clara",
+    "Trabalho em Equipe",
+    "Facilidade para Aprender",
+    "Proatividade"
+  ]
+}

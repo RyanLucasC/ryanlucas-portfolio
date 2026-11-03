@@ -1,0 +1,32 @@
+---
+import StatusBadge from './StatusBadge.astro';
+import { STATUS } from '../lib/status.mjs';
+import { UI } from '../lib/i18n.mjs';
+
+const { items, lang = 'pt' } = Astro.props as { items: { title: string; status: string }[]; lang?: 'pt' | 'en' };
+// Classes, não style inline: a CSP do site bloqueia atributos style.
+const stagger = ['[--stagger:0]', '[--stagger:1]', '[--stagger:2]'];
+const columns = ['done', 'doing', 'queued'].map((status) => ({
+  status,
+  items: items.filter((item) => item.status === status),
+}));
+---
+
+<div class="grid gap-3 md:grid-cols-3">
+  {
+    columns.map((column, i) => (
+      <section
+        class:list={['rise bg-canvas p-5 md:p-6', stagger[i]]}
+        aria-label={`${UI[lang].goalsLabel}: ${STATUS[column.status as keyof typeof STATUS].label[lang]}`}
+      >
+        <div class="flex items-center justify-between">
+          <StatusBadge status={column.status} lang={lang} />
+          <span class="text-small text-muted">{column.items.length}</span>
+        </div>
+        <ul class="mt-5 space-y-2">
+          {column.items.map((item) => <li class="bg-surface px-4 py-3 text-ink">{item.title}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+</div>

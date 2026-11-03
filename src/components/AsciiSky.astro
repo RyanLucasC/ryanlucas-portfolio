@@ -1,0 +1,32 @@
+---
+import resume from '../data/resume.json';
+
+const services = ['ec2', 's3', 'lambda', 'rds'];
+
+// Os bits que caem são os primeiros bytes reais do resume.json.
+const bits = [...new TextEncoder().encode(JSON.stringify(resume.person))]
+  .map((byte) => byte.toString(2).padStart(8, '0'))
+  .join('');
+const stream = (i: number) => {
+  const line = bits.slice(i * 13, i * 13 + 12).split('').join('\n');
+  return `${line}\n${line}`; // repetido para o loop não ter emenda
+};
+
+// Duas séries iguais: a trilha anda metade da largura e o recomeço não aparece.
+const clouds = [...services, ...services];
+---
+
+<div data-ui class="ascii-sky" aria-hidden="true">
+  <div class="ascii-track">
+    {
+      clouds.map((service, c) => (
+        <div class={`ascii-unit rain-${service}`}>
+          <img src={`/generated/clouds/${service}.webp`} width="960" height="720" alt="" loading="lazy" decoding="async" />
+          <div class="ascii-rain">
+            {[0, 1, 2, 3, 4, 5, 6].map((i) => <pre>{stream((c % services.length) * 7 + i)}</pre>)}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
