@@ -25,7 +25,37 @@ let index = 0;
 
   <main id="conteudo">
     {
-      g.groups.map((group) => (
+      g.groups.map((group) =>
+        group.layout === 'phone' ? (
+          <section class="frame section pb-0!" aria-label={group.title}>
+            <h2>{group.title}</h2>
+            {group.intro && <p class="mt-6 mb-10 max-w-[52ch] text-lead leading-snug">{group.intro}</p>}
+            <div class="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {group.items.map((item) => {
+                const [width, height] = sizes[item.slug];
+                return (
+                  <figure class="flex flex-col gap-4">
+                    <a href={src(item.slug, width)} class="block bg-surface p-2" aria-label={`${g.open}: ${item.title}`}>
+                      <img
+                        src={src(item.slug, width)}
+                        width={width}
+                        height={height}
+                        loading="lazy"
+                        decoding="async"
+                        class="mx-auto h-auto w-full max-w-[22rem]"
+                        alt={item.title}
+                      />
+                    </a>
+                    <figcaption>
+                      <h3 class="text-[clamp(1.25rem,1.8vw,1.5rem)] leading-tight tracking-tight">{item.title}</h3>
+                      <p class="mt-2 text-small text-body">{item.text}</p>
+                    </figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </section>
+        ) : (
         <section class="frame section pb-0!" aria-label={group.title}>
           <h2 class="mb-10">{group.title}</h2>
           <div class="space-y-16">
@@ -56,7 +86,8 @@ let index = 0;
             })}
           </div>
         </section>
-      ))
+        ),
+      )
     }
     <p class="frame section"><a class="text-link" href={t.path}>{g.back}</a></p>
   </main>
