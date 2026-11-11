@@ -65,8 +65,7 @@
       "items": [
         "FastAPI",
         "SQLite",
-        "PostgreSQL",
-        "Data Engineering"
+        "PostgreSQL"
       ]
     },
     {
@@ -98,7 +97,7 @@
         "Freight compared to the legal minimum rate (ANTT), with versioned tables updated from the official calculator",
         "Expiration and mileage-based maintenance alerts, with push notifications",
         "Security: scrypt-hashed passwords, revocable sessions, login attempt lockout and a strict CSP",
-        "Change auditing, encrypted daily backups and weekly restore tests",
+        "Change auditing, daily backups and weekly restore tests",
         "Automated tests (pytest and Playwright) and CI on GitHub Actions, with dependency scanning"
       ],
       "architectureTitle": "Production architecture, on a Linux VPS",
@@ -113,7 +112,7 @@
         {
           "layer": "Edge",
           "items": [
-            "Caddy (HTTPS)"
+            "nginx (HTTPS)"
           ]
         },
         {
@@ -140,7 +139,7 @@
         "Tailwind CSS"
       ],
       "status": "done",
-      "deployment": "In production on a Linux VPS, with Caddy (HTTPS) and systemd"
+      "deployment": "In production on a Linux VPS, with nginx, HTTPS (Let's Encrypt) and services isolated by systemd"
     },
     {
       "name": "This portfolio",
@@ -190,7 +189,11 @@
         "Node.js",
         "React"
       ],
-      "status": "active"
+      "status": "active",
+      "link": {
+        "label": "Source on GitHub",
+        "url": "https://github.com/RyanLucasC/ryanlucas-portfolio"
+      }
     }
   ],
   "experience": [

@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { UI } from '../lib/i18n.mjs';
+
+const { lang } = Astro.props as { lang: 'pt' | 'en' };
+const t = UI[lang];
+---
+
+<Base lang={lang} title={t.notFound.title} noindex>
+  <main id="conteudo" class="frame flex min-h-svh flex-col justify-center gap-6">
+    <h1 class="text-head leading-none font-medium tracking-[-0.05em]">{t.notFound.title}</h1>
+    <p class="text-lead">{t.notFound.text}</p>
+    <p><a class="text-link" href={t.path}>{t.notFound.back}</a></p>
+  </main>
+</Base>

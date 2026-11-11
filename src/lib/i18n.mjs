@@ -27,6 +27,11 @@ export const UI = {
     resumeAlt: 'Primeira página do currículo em PDF.',
     email: 'E-mail',
     updated: 'Atualizado em',
+    notFound: {
+      title: 'Página não encontrada',
+      text: 'O endereço pode ter mudado ou nunca ter existido.',
+      back: 'Voltar para o início',
+    },
     pdf: {
       title: 'Currículo',
       projects: 'Projetos',
@@ -64,6 +69,11 @@ export const UI = {
     resumeAlt: 'First page of the PDF resume.',
     email: 'Email',
     updated: 'Updated',
+    notFound: {
+      title: 'Page not found',
+      text: 'The address may have changed or never existed.',
+      back: 'Back to the home page',
+    },
     pdf: {
       title: 'Resume',
       projects: 'Projects',

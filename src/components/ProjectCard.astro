@@ -31,4 +31,13 @@ const { project, lang = 'pt' } = Astro.props;
     </ol>
   </figure>
   <TagList tags={project.tags} />
+  {
+    project.link && (
+      <p>
+        <a class="text-link" href={project.link.url} target="_blank" rel="noopener noreferrer">
+          {project.link.label}
+        </a>
+      </p>
+    )
+  }
 </article>

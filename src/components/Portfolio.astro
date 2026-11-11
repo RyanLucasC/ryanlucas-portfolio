@@ -9,6 +9,7 @@ import TagList from './TagList.astro';
 import pt from '../data/resume.json';
 import en from '../data/resume.en.json';
 import { UI } from '../lib/i18n.mjs';
+import { contentUpdatedAt } from '../lib/updated.mjs';
 import manifest from '../../public/generated/manifest.json';
 
 const { lang } = Astro.props as { lang: 'pt' | 'en' };
@@ -19,7 +20,7 @@ const [firstLine, secondLine] = ['RYAN LUCAS', 'CARDOSO'];
 const pdfHref = `/${meta.pdfFile}`;
 const pdfSize = `${Math.round(manifest[lang].pdfBytes / 1024)} KB`;
 const preview = manifest[lang].pages[0];
-const updated = new Intl.DateTimeFormat(t.htmlLang, { month: 'short', year: 'numeric' }).format(new Date());
+const updated = new Intl.DateTimeFormat(t.htmlLang, { month: 'short', year: 'numeric', timeZone: 'America/Sao_Paulo' }).format(contentUpdatedAt());
 const contactRows = [
   { label: t.email, handle: contact.email, url: `mailto:${contact.email}`, external: false },
   ...contact.links.map((link) => ({ ...link, external: true })),
@@ -72,7 +73,6 @@ const nav = [
         sizes="(min-width: 48rem) 40vw, 100vw"
         width="800"
         height="1000"
-        fetchpriority="high"
         alt={t.photoAlt}
       />
       <div class="rise flex flex-col">

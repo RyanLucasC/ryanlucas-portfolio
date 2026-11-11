@@ -8,6 +8,7 @@
     "resume": "node scripts/generate-resume.mjs && node scripts/generate-clouds.mjs",
     "prebuild": "npm run check:data && npm run resume",
     "build": "astro build",
+    "postbuild": "node scripts/place-404.mjs",
     "dev": "npm run check:data && npm run resume && astro dev",
     "preview": "astro preview"
   },

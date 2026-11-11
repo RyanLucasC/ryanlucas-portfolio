@@ -6,13 +6,25 @@ import pt from '../data/resume.json';
 import en from '../data/resume.en.json';
 import { UI } from '../lib/i18n.mjs';
 
-const { lang = 'pt', title: pageTitle } = Astro.props as { lang?: 'pt' | 'en'; title?: string };
+const { lang = 'pt', title: pageTitle, noindex = false } = Astro.props as { lang?: 'pt' | 'en'; title?: string; noindex?: boolean };
 const resume = lang === 'en' ? en : pt;
 const t = UI[lang];
 const { person, meta } = resume;
 const title = pageTitle ?? `${person.fullName} | ${t.title}`;
 const description = `${person.tagline} ${person.headline}.`;
 const url = (path: string) => new URL(path, meta.siteUrl).href;
+// Dados estruturados: bloco de dados, não é executado, então a CSP sem scripts continua valendo.
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: person.fullName,
+  url: url(t.path),
+  image: url('/foto/ryan-lucas-800.webp'),
+  description,
+  email: `mailto:${resume.contact.email}`,
+  sameAs: resume.contact.links.map((link) => link.url),
+  alumniOf: resume.education.map((item) => ({ '@type': 'CollegeOrUniversity', name: item.school })),
+}).replace(/</g, '\u003c');
 ---
 
 <!doctype html>
@@ -23,10 +35,20 @@ const url = (path: string) => new URL(path, meta.siteUrl).href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0d1117" />
-    <link rel="canonical" href={url(t.path)} />
-    <link rel="alternate" hreflang="pt-BR" href={url(UI.pt.path)} />
-    <link rel="alternate" hreflang="en" href={url(UI.en.path)} />
-    <link rel="alternate" hreflang="x-default" href={url(UI.pt.path)} />
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <>
+          <link rel="canonical" href={url(t.path)} />
+          <link rel="alternate" hreflang="pt-BR" href={url(UI.pt.path)} />
+          <link rel="alternate" hreflang="en" href={url(UI.en.path)} />
+          <link rel="alternate" hreflang="x-default" href={url(UI.pt.path)} />
+          <link rel="sitemap" href="/sitemap.xml" />
+          <script type="application/ld+json" is:inline set:html={jsonLd} />
+        </>
+      )
+    }
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={title} />

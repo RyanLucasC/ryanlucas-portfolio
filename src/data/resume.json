@@ -65,8 +65,7 @@
       "items": [
         "FastAPI",
         "SQLite",
-        "PostgreSQL",
-        "Data Engineering"
+        "PostgreSQL"
       ]
     },
     {
@@ -98,7 +97,7 @@
         "Frete comparado ao piso mínimo legal (ANTT), com tabelas versionadas e atualizadas pela calculadora oficial",
         "Alertas de vencimento e de manutenção por km, com notificações push",
         "Segurança: senhas com scrypt, sessões revogáveis, bloqueio por tentativas e CSP restritiva",
-        "Auditoria de alterações, backup diário cifrado e teste semanal de restauração",
+        "Auditoria de alterações, backup diário e teste semanal de restauração",
         "Testes automatizados (pytest e Playwright) e CI no GitHub Actions, com verificação de dependências"
       ],
       "architecture": [
@@ -112,7 +111,7 @@
         {
           "layer": "Borda",
           "items": [
-            "Caddy (HTTPS)"
+            "nginx (HTTPS)"
           ]
         },
         {
@@ -139,7 +138,7 @@
         "Tailwind CSS"
       ],
       "status": "done",
-      "deployment": "Em produção em VPS Linux, com Caddy (HTTPS) e systemd",
+      "deployment": "Em produção em VPS Linux, com nginx, HTTPS (Let's Encrypt) e serviços isolados pelo systemd",
       "architectureTitle": "Arquitetura em produção, em VPS Linux"
     },
     {
@@ -190,7 +189,11 @@
             "PDF"
           ]
         }
-      ]
+      ],
+      "link": {
+        "label": "Código no GitHub",
+        "url": "https://github.com/RyanLucasC/ryanlucas-portfolio"
+      }
     }
   ],
   "experience": [
