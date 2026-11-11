@@ -65,17 +65,20 @@ const eager = () => {
                     return (
                       <figure class:list={['flex flex-col gap-4', wide(group, i) && 'lg:col-span-2']}>
                         <a href={src(item.slug, 1568)} class="block bg-surface p-2" aria-label={`${g.open}: ${item.title}`}>
-                          <img
-                            src={src(item.slug, 1568)}
-                            srcset={`${src(item.slug, 800)} 800w, ${src(item.slug, 1568)} 1568w`}
-                            sizes={wide(group, i) ? '100vw' : '(min-width: 64rem) 50vw, 100vw'}
-                            width={width}
-                            height={height}
-                            loading={eager() ? 'eager' : 'lazy'}
-                            decoding="async"
-                            class="h-auto w-full"
-                            alt={item.title}
-                          />
+                          {/* Proporção fixa: as prints têm 726 ou 772 px de altura e ficariam desiguais lado a lado. */}
+                          <span class="block aspect-[1568/726] overflow-hidden">
+                            <img
+                              src={src(item.slug, 1568)}
+                              srcset={`${src(item.slug, 800)} 800w, ${src(item.slug, 1568)} 1568w`}
+                              sizes={wide(group, i) ? '100vw' : '(min-width: 64rem) 50vw, 100vw'}
+                              width={width}
+                              height={height}
+                              loading={eager() ? 'eager' : 'lazy'}
+                              decoding="async"
+                              class="h-full w-full object-cover object-top"
+                              alt={item.title}
+                            />
+                          </span>
                         </a>
                         <figcaption class:list={[wide(group, i) && 'lg:grid lg:grid-cols-[1fr_2fr] lg:gap-6']}>
                           <h4 class="text-[clamp(1.25rem,1.8vw,1.5rem)] leading-tight font-medium tracking-tight">{item.title}</h4>
