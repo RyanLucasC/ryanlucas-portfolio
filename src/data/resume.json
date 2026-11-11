@@ -64,8 +64,7 @@
       "group": "Dados e backend",
       "items": [
         "FastAPI",
-        "SQLite",
-        "PostgreSQL"
+        "SQLite"
       ]
     },
     {
@@ -79,7 +78,6 @@
     {
       "group": "Cloud e ferramentas",
       "items": [
-        "AWS",
         "Linux",
         "Git",
         "GitHub",
@@ -91,7 +89,7 @@
     {
       "name": "ERP Logístico",
       "context": "RR Transportes e Terraplanagem",
-      "summary": "Sistema que organiza a operação de uma transportadora: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista, que funciona sem sinal.",
+      "summary": "Sistema que organiza a operação de uma transportadora: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista, que funciona sem sinal. Substituiu planilhas, anotações em papel e mensagens de WhatsApp no controle de uma frota com mais de cinco caminhões, que faz em média 85 viagens por mês.",
       "highlights": [
         "Resultado financeiro por viagem (DRE), com conferência do gestor, comissões e custos de combustível, manutenção e gastos avulsos com foto do recibo",
         "Frete comparado ao piso mínimo legal (ANTT), com tabelas versionadas e atualizadas pela calculadora oficial",
@@ -139,7 +137,11 @@
       ],
       "status": "done",
       "deployment": "Em produção em VPS Linux, com nginx, HTTPS (Let's Encrypt) e serviços isolados pelo systemd",
-      "architectureTitle": "Arquitetura em produção, em VPS Linux"
+      "architectureTitle": "Arquitetura em produção, em VPS Linux",
+      "gallery": {
+        "label": "Ver as telas do sistema",
+        "page": "erp/"
+      }
     },
     {
       "name": "Este portfólio",

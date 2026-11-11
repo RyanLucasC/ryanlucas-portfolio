@@ -6,12 +6,19 @@ import pt from '../data/resume.json';
 import en from '../data/resume.en.json';
 import { UI } from '../lib/i18n.mjs';
 
-const { lang = 'pt', title: pageTitle, noindex = false } = Astro.props as { lang?: 'pt' | 'en'; title?: string; noindex?: boolean };
+// page: caminho relativo à raiz de cada idioma ('' para a página inicial, 'erp/' para a galeria).
+const {
+  lang = 'pt',
+  title: pageTitle,
+  description: pageDescription,
+  page = '',
+  noindex = false,
+} = Astro.props as { lang?: 'pt' | 'en'; title?: string; description?: string; page?: string; noindex?: boolean };
 const resume = lang === 'en' ? en : pt;
 const t = UI[lang];
 const { person, meta } = resume;
 const title = pageTitle ?? `${person.fullName} | ${t.title}`;
-const description = `${person.tagline} ${person.headline}.`;
+const description = pageDescription ?? `${person.tagline} ${person.headline}.`;
 const url = (path: string) => new URL(path, meta.siteUrl).href;
 // Dados estruturados: bloco de dados, não é executado, então a CSP sem scripts continua valendo.
 const jsonLd = JSON.stringify({
@@ -24,7 +31,7 @@ const jsonLd = JSON.stringify({
   email: `mailto:${resume.contact.email}`,
   sameAs: resume.contact.links.map((link) => link.url),
   alumniOf: resume.education.map((item) => ({ '@type': 'CollegeOrUniversity', name: item.school })),
-}).replace(/</g, '\u003c');
+}).replace(/</g, () => String.fromCharCode(92) + 'u003c'); // impede fechar a tag script
 ---
 
 <!doctype html>
@@ -40,12 +47,12 @@ const jsonLd = JSON.stringify({
         <meta name="robots" content="noindex" />
       ) : (
         <>
-          <link rel="canonical" href={url(t.path)} />
-          <link rel="alternate" hreflang="pt-BR" href={url(UI.pt.path)} />
-          <link rel="alternate" hreflang="en" href={url(UI.en.path)} />
-          <link rel="alternate" hreflang="x-default" href={url(UI.pt.path)} />
+          <link rel="canonical" href={url(t.path + page)} />
+          <link rel="alternate" hreflang="pt-BR" href={url(UI.pt.path + page)} />
+          <link rel="alternate" hreflang="en" href={url(UI.en.path + page)} />
+          <link rel="alternate" hreflang="x-default" href={url(UI.pt.path + page)} />
           <link rel="sitemap" href="/sitemap.xml" />
-          <script type="application/ld+json" is:inline set:html={jsonLd} />
+          {page === '' && <script type="application/ld+json" is:inline set:html={jsonLd} />}
         </>
       )
     }
@@ -53,7 +60,7 @@ const jsonLd = JSON.stringify({
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={url(t.path)} />
+    <meta property="og:url" content={url(t.path + page)} />
     <meta property="og:locale" content={t.locale} />
     <meta property="og:image" content={url('/generated/og.jpg')} />
     <meta property="og:image:width" content="1200" />

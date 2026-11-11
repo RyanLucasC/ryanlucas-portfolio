@@ -1,0 +1,109 @@
+{
+  "sizes": {
+    "visao-geral": [1568, 772],
+    "graficos": [1568, 772],
+    "viagens": [1568, 772],
+    "lancamentos": [1568, 726],
+    "comissoes": [1568, 726],
+    "frota-em-dia": [1568, 726],
+    "veiculos": [1568, 726],
+    "motoristas": [1568, 772],
+    "locais": [1568, 772],
+    "historico": [1568, 726],
+    "visao-geral-escuro": [1568, 726],
+    "graficos-escuro": [1568, 726],
+    "frota-em-dia-escuro": [1568, 726]
+  },
+  "pt": {
+    "title": "ERP Logístico: telas do sistema",
+    "intro": "O painel do gestor, tela a tela, com dados fictícios de demonstração. Mesmo assim, CPF e CNH dos motoristas aparecem desfocados.",
+    "back": "Voltar ao portfólio",
+    "open": "Abrir em tamanho real",
+    "groups": [
+      {
+        "title": "Painel do gestor",
+        "items": [
+          { "slug": "visao-geral", "title": "Visão Geral", "text": "Painel principal do gestor, com o lucro líquido do mês e a comparação com o mês anterior. Mostra também faturamento bruto, despesas operacionais, capacidade ativa da frota e consumo médio de diesel. Embaixo fica o status de cada caminhão em tempo real: no pátio, em rota ou a conferir." },
+          { "slug": "graficos", "title": "Gráficos e rentabilidade", "text": "Histórico de seis meses de faturamento, despesas e lucro, ao lado de um gráfico de rosca que mostra para onde vai o dinheiro (diesel, comissões, pneus, pedágio etc.). O ranking de rentabilidade por veículo destaca na hora qual caminhão dá lucro e qual dá prejuízo." }
+        ]
+      },
+      {
+        "title": "Operação e financeiro",
+        "items": [
+          { "slug": "viagens", "title": "Viagens e Fretes", "text": "Lista das viagens com abas por situação (planejadas, em andamento, concluídas e a conferir), busca por cidade, placa, ficha ou motorista e filtro por motorista. Cada linha traz rota, carga, tonelagem, frete, custos e margem calculada." },
+          { "slug": "lancamentos", "title": "Lançamentos e Despesas", "text": "Registro dos abastecimentos e gastos do escritório e dos motoristas, com filtros por mês, motorista, tipo, comprovante e origem. Cada lançamento mostra litros, preço por litro, posto e viagem vinculada. Gastos avulsos, sem viagem, ficam sinalizados." },
+          { "slug": "comissoes", "title": "Comissões", "text": "Acerto mensal de cada motorista, com o total a pagar, o total pago e o andamento do acerto. A comissão é calculada pelo percentual de cada motorista e só entra no valor depois que a viagem é conferida, o que evita pagar por ficha errada." }
+        ]
+      },
+      {
+        "title": "Frota",
+        "items": [
+          { "slug": "frota-em-dia", "title": "Frota em dia", "text": "Controle de vencimento de documentos, como CNH e aferição do tacógrafo, e de manutenção preventiva por quilometragem. O sistema calcula a próxima troca a partir do hodômetro, que vem das viagens e abastecimentos, e mostra alertas por cor. Os mesmos avisos aparecem no app do motorista." },
+          { "slug": "veiculos", "title": "Gestão da Frota: Veículos", "text": "Cadastro de cavalos e conjuntos com placa, marca, modelo, configuração (rodotrem, bitrem), eixos e ano. A lista mostra quais veículos estão ativos ou em viagem e o motorista de cada um." },
+          { "slug": "motoristas", "title": "Gestão da Frota: Motoristas", "text": "Cadastro de motoristas com CPF, CNH, telefone, percentual de comissão e caminhão fixo. Ao cadastrar o motorista, o sistema já cria o acesso dele ao app, com login pelo CPF e uma senha provisória." },
+          { "slug": "locais", "title": "Gestão da Frota: Locais", "text": "Cadastro de fazendas, armazéns e pontos de carga com link do Google Maps. Os motoristas salvam pelo app a localização recebida no WhatsApp, e o gestor corrige links errados ou remove locais duplicados." }
+        ]
+      },
+      {
+        "title": "Auditoria",
+        "items": [
+          { "slug": "historico", "title": "Histórico de alterações", "text": "Log de auditoria que registra quem criou, alterou ou excluiu cada registro e quando, com filtro por tipo. Garante rastreabilidade das operações financeiras." }
+        ]
+      },
+      {
+        "title": "Tema escuro",
+        "items": [
+          { "slug": "visao-geral-escuro", "title": "Visão Geral", "text": "O mesmo dashboard no tema escuro, com contraste ajustado para uso prolongado." },
+          { "slug": "graficos-escuro", "title": "Gráficos", "text": "Os gráficos de rentabilidade adaptados ao tema escuro, mantendo a leitura das cores e dos valores." },
+          { "slug": "frota-em-dia-escuro", "title": "Frota em dia", "text": "A tela de documentos e manutenção no tema escuro, com os alertas coloridos legíveis sobre o fundo escuro." }
+        ]
+      }
+    ]
+  },
+  "en": {
+    "title": "Logistics ERP: system screens",
+    "intro": "The manager dashboard, screen by screen, with fictional demo data. The interface is in Portuguese, and driver ID and license numbers are blurred anyway.",
+    "back": "Back to the portfolio",
+    "open": "Open full size",
+    "groups": [
+      {
+        "title": "Manager dashboard",
+        "items": [
+          { "slug": "visao-geral", "title": "Overview", "text": "The main manager dashboard, with the month's net profit compared to the previous month. It also shows gross revenue, operating expenses, active fleet capacity and average diesel consumption. Below it is the live status of each truck: in the yard, on the road or awaiting review." },
+          { "slug": "graficos", "title": "Charts and profitability", "text": "Six months of revenue, expenses and profit, next to a donut chart showing where the money goes (diesel, commissions, tires, tolls and more). The per-vehicle profitability ranking shows at a glance which truck makes money and which one loses it." }
+        ]
+      },
+      {
+        "title": "Operations and finance",
+        "items": [
+          { "slug": "viagens", "title": "Trips and freight", "text": "Trip list with tabs by status (planned, in progress, completed and awaiting review), search by city, plate, trip sheet or driver, and a driver filter. Each row shows route, cargo, tonnage, freight, costs and calculated margin." },
+          { "slug": "lancamentos", "title": "Entries and expenses", "text": "Fuel and expense records from the office and the drivers, filtered by month, driver, type, receipt and source. Each entry shows liters, price per liter, gas station and linked trip. Ad-hoc expenses with no trip are flagged." },
+          { "slug": "comissoes", "title": "Commissions", "text": "Monthly settlement for each driver, with the total due, the total paid and the settlement progress. Commission uses each driver's percentage and only counts once the trip has been reviewed, so no one gets paid for a wrong trip sheet." }
+        ]
+      },
+      {
+        "title": "Fleet",
+        "items": [
+          { "slug": "frota-em-dia", "title": "Fleet up to date", "text": "Expiration tracking for documents such as driver's licenses and tachograph calibration, plus mileage-based preventive maintenance. The system works out the next service from the odometer, fed by trips and fuel records, and shows color-coded alerts. The same alerts appear in the driver app." },
+          { "slug": "veiculos", "title": "Fleet management: vehicles", "text": "Tractors and trailer combinations with plate, make, model, configuration, axles and year. The list shows which vehicles are active or on a trip and who drives each one." },
+          { "slug": "motoristas", "title": "Fleet management: drivers", "text": "Driver records with ID, license, phone, commission percentage and assigned truck. Registering a driver also creates their app account, with their ID as login and a temporary password." },
+          { "slug": "locais", "title": "Fleet management: places", "text": "Farms, warehouses and loading points with a Google Maps link. Drivers save locations they receive on WhatsApp through the app, and the manager fixes wrong links or removes duplicates." }
+        ]
+      },
+      {
+        "title": "Auditing",
+        "items": [
+          { "slug": "historico", "title": "Change history", "text": "Audit log recording who created, changed or deleted each record and when, filtered by type. It keeps financial operations traceable." }
+        ]
+      },
+      {
+        "title": "Dark theme",
+        "items": [
+          { "slug": "visao-geral-escuro", "title": "Overview", "text": "The same dashboard in the dark theme, with contrast tuned for long sessions." },
+          { "slug": "graficos-escuro", "title": "Charts", "text": "The profitability charts adapted to the dark theme, with colors and values still easy to read." },
+          { "slug": "frota-em-dia-escuro", "title": "Fleet up to date", "text": "The documents and maintenance screen in the dark theme, with color-coded alerts readable on the dark background." }
+        ]
+      }
+    ]
+  }
+}

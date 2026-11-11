@@ -64,8 +64,7 @@
       "group": "Data and backend",
       "items": [
         "FastAPI",
-        "SQLite",
-        "PostgreSQL"
+        "SQLite"
       ]
     },
     {
@@ -79,7 +78,6 @@
     {
       "group": "Cloud and tools",
       "items": [
-        "AWS",
         "Linux",
         "Git",
         "GitHub",
@@ -91,7 +89,7 @@
     {
       "name": "Logistics ERP",
       "context": "RR Transportes e Terraplanagem",
-      "summary": "System that runs the operation of a trucking company: trips, costs, freight and maintenance, with a dashboard for the manager and an app for the driver that works without signal.",
+      "summary": "System that runs the operation of a trucking company: trips, costs, freight and maintenance, with a dashboard for the manager and an app for the driver that works without signal. It replaced spreadsheets, paper notes and WhatsApp messages in the management of a fleet of more than five trucks, which runs about 85 trips a month.",
       "highlights": [
         "Financial result per trip, with manager review, commissions and fuel, maintenance and ad-hoc costs backed by receipt photos",
         "Freight compared to the legal minimum rate (ANTT), with versioned tables updated from the official calculator",
@@ -139,7 +137,11 @@
         "Tailwind CSS"
       ],
       "status": "done",
-      "deployment": "In production on a Linux VPS, with nginx, HTTPS (Let's Encrypt) and services isolated by systemd"
+      "deployment": "In production on a Linux VPS, with nginx, HTTPS (Let's Encrypt) and services isolated by systemd",
+      "gallery": {
+        "label": "See the system screens",
+        "page": "erp/"
+      }
     },
     {
       "name": "This portfolio",

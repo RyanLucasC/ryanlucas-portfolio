@@ -1,8 +1,10 @@
 ---
 import StatusBadge from './StatusBadge.astro';
 import TagList from './TagList.astro';
+import { UI } from '../lib/i18n.mjs';
 
 const { project, lang = 'pt' } = Astro.props;
+const home = UI[lang as 'pt' | 'en'].path;
 ---
 
 <article class="rise flex h-full flex-col gap-5 bg-surface p-6 md:p-8">
@@ -32,11 +34,18 @@ const { project, lang = 'pt' } = Astro.props;
   </figure>
   <TagList tags={project.tags} />
   {
-    project.link && (
-      <p>
-        <a class="text-link" href={project.link.url} target="_blank" rel="noopener noreferrer">
-          {project.link.label}
-        </a>
+    (project.gallery || project.link) && (
+      <p class="flex flex-wrap gap-x-6 gap-y-2">
+        {project.gallery && (
+          <a class="text-link font-medium" href={home + project.gallery.page}>
+            {project.gallery.label}
+          </a>
+        )}
+        {project.link && (
+          <a class="text-link" href={project.link.url} target="_blank" rel="noopener noreferrer">
+            {project.link.label}
+          </a>
+        )}
       </p>
     )
   }
