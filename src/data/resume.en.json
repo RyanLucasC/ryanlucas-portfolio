@@ -10,7 +10,7 @@
     "tagline": "Student at UEM, in Maringá, Brazil.",
     "location": "Maringá, Brazil",
     "footer": "UEM · Maringá, Brazil · Software Engineering",
-    "seeking": "Looking for an internship in the field."
+    "seeking": "Open to internship opportunities in data, cloud or software development."
   },
   "contact": {
     "email": "ryan.lucascardoso3@gmail.com",
@@ -25,20 +25,25 @@
         "label": "GitHub",
         "handle": "RyanLucasC",
         "url": "https://github.com/RyanLucasC"
+      },
+      {
+        "label": "Instagram",
+        "handle": "@ryanlucas.dev",
+        "url": "https://www.instagram.com/ryanlucas.dev/"
       }
     ]
   },
   "about": {
     "summary": [
-      "Software Engineering undergraduate at the State University of Maringá (UEM), Brazil, focused on data and cloud computing. I combine a technical view of technology with its practical use in business and project management.",
-      "At Main - Soluções em Software, I see up close how a technology service comes to life: from the first client conversation to project delivery.",
-      "At RR Transportes e Terraplanagem, I bring that perspective to operations, turning day-to-day routines into internal systems and management dashboards.",
-      "I look for challenges that demand analytical thinking and connect technology to real results, with the goal of becoming a data engineer."
+      "Second-year Software Engineering student at the State University of Maringá (UEM), Brazil, focused on Data Engineering, cloud and AI.",
+      "At RR Transportes e Terraplanagem, I work in operations and built the fleet management ERP the company uses today.",
+      "At Main - Soluções em Software, I am an intern in sales and projects: prospecting, contract negotiation, requirements gathering and delivery tracking.",
+      "At UEM, I do undergraduate research (PIBIC) on Item Response Theory and AI. I co-organize Cloud Native Maringá, which plans to bring cloud events to the university starting in 2027."
     ],
     "facts": [
       {
         "label": "Focus",
-        "value": "Data and Cloud"
+        "value": "Data, cloud and AI"
       },
       {
         "label": "Based in",
@@ -55,33 +60,47 @@
       "group": "Programming languages",
       "items": [
         "Python",
-        "JavaScript",
-        "C",
-        "HTML / CSS"
+        "SQL",
+        "JavaScript"
       ]
     },
     {
       "group": "Data and backend",
       "items": [
         "FastAPI",
-        "SQLite"
+        "SQLite",
+        "Web dashboards"
+      ]
+    },
+    {
+      "group": "Infrastructure",
+      "items": [
+        "Git",
+        "Linux",
+        "VPS deployment"
       ]
     },
     {
       "group": "Web and design",
       "items": [
-        "React",
+        "HTML",
+        "CSS",
+        "Astro",
         "Tailwind CSS",
         "Figma"
       ]
     },
     {
-      "group": "Cloud and tools",
+      "group": "AI",
       "items": [
-        "Linux",
-        "Git",
-        "GitHub",
-        "Claude AI"
+        "Claude",
+        "LLM integration"
+      ]
+    },
+    {
+      "group": "Currently learning",
+      "items": [
+        "AWS"
       ]
     }
   ],
@@ -200,24 +219,42 @@
   ],
   "experience": [
     {
-      "role": "Sales and Project Assistant",
-      "company": "Main - Soluções em Software (internship)",
-      "location": "Maringá, Brazil",
-      "period": "Sep 2026 – present",
-      "highlights": [
-        "Active B2B client prospecting and preparation of commercial proposals",
-        "Negotiation of technology projects",
-        "Requirements structuring and project execution tracking"
-      ]
-    },
-    {
       "role": "Operations Administrative Assistant",
       "company": "RR Transportes e Terraplanagem LTDA",
       "location": "Comodoro, Brazil (remote)",
       "period": "Aug 2026 – present",
       "highlights": [
         "Support for the daily management of transport and heavy machinery operations",
-        "Software design and web architecture for internal systems and dashboards covering freight, fueling and operating costs"
+        "Built the fleet management ERP the company uses today: trips, costs, freight and maintenance, with a dashboard for the manager and an app for drivers"
+      ]
+    },
+    {
+      "role": "Sales and Project Assistant",
+      "company": "Main - Soluções em Software (internship)",
+      "location": "Maringá, Brazil",
+      "period": "Sep 2026 – present",
+      "highlights": [
+        "Client prospecting and contract negotiation",
+        "Requirements gathering with clients",
+        "Tracking of project deliveries"
+      ]
+    },
+    {
+      "role": "Undergraduate Research (PIBIC)",
+      "company": "State University of Maringá (UEM)",
+      "location": "Maringá, Brazil",
+      "period": "ongoing",
+      "highlights": [
+        "Research on Item Response Theory (IRT) and Artificial Intelligence"
+      ]
+    },
+    {
+      "role": "Co-organizer",
+      "company": "Cloud Native Maringá (CNCF)",
+      "location": "Maringá, Brazil",
+      "period": "Nov 2026 – present",
+      "highlights": [
+        "Co-organizing the local CNCF community, with the goal of bringing cloud events to UEM starting in 2027"
       ]
     },
     {
@@ -272,7 +309,15 @@
       "status": "done"
     },
     {
-      "title": "AWS Cloud Practitioner certification",
+      "title": "Bring cloud events to UEM through Cloud Native Maringá (meetups starting in 2027)",
+      "status": "doing"
+    },
+    {
+      "title": "PIBIC research on IRT and AI",
+      "status": "doing"
+    },
+    {
+      "title": "AWS Certified Cloud Practitioner",
       "status": "doing"
     },
     {
@@ -284,15 +329,7 @@
       "status": "queued"
     },
     {
-      "title": "Cloud tech community at UEM",
-      "status": "queued"
-    },
-    {
       "title": "Open source projects on GitHub",
-      "status": "queued"
-    },
-    {
-      "title": "PIBIC undergraduate research",
       "status": "queued"
     }
   ],

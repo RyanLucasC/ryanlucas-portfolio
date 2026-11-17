@@ -38,7 +38,7 @@ const s = StyleSheet.create({
 const Section = (title, ...children) => h(View, null, h(Text, { style: s.h2 }, title), ...children);
 
 const Bullet = (children, key) =>
-  h(View, { style: s.bullet, key }, h(Text, { style: s.mark }, '•'), h(Text, { style: s.bulletText }, children));
+  h(View, { style: s.bullet, key, wrap: false }, h(Text, { style: s.mark }, '•'), h(Text, { style: s.bulletText }, children));
 
 // Linha em negrito e linha em itálico, com o complemento alinhado à direita, como no modelo LaTeX.
 const Entry = ({ title, place, subtitle, period, items = [], key }) =>
@@ -56,7 +56,8 @@ export function ResumeDocument({ resume, lang }) {
   const t = UI[lang];
   const { person, contact, stack, projects, experience, education, languages, certifications, softSkills } = resume;
   const contactParts = [person.location, ...(contact.email ? [contact.email] : [])];
-  const links = contact.links.map((l) => ({ ...l, text: l.url.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '') }));
+  // Instagram fica só no site: na linha de contato do PDF não há espaço para ele.
+  const links = contact.links.filter((l) => l.label !== 'Instagram').map((l) => ({ ...l, text: l.url.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '') }));
   // A MAIN já aparece em Experiência, com o mesmo conteúdo.
   const delivered = projects.filter((p) => p.status === 'done');
 

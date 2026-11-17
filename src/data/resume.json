@@ -10,7 +10,7 @@
     "tagline": "Estudante da UEM, em Maringá, PR.",
     "location": "Maringá, PR",
     "footer": "UEM · Maringá, PR · Engenharia de Software",
-    "seeking": "Em busca de estágio na área."
+    "seeking": "Aberto a oportunidades de estágio em dados, cloud ou desenvolvimento."
   },
   "contact": {
     "email": "ryan.lucascardoso3@gmail.com",
@@ -25,20 +25,25 @@
         "label": "GitHub",
         "handle": "RyanLucasC",
         "url": "https://github.com/RyanLucasC"
+      },
+      {
+        "label": "Instagram",
+        "handle": "@ryanlucas.dev",
+        "url": "https://www.instagram.com/ryanlucas.dev/"
       }
     ]
   },
   "about": {
     "summary": [
-      "Graduando em Engenharia de Software pela Universidade Estadual de Maringá (UEM), com foco em dados e computação em nuvem. Uno a visão técnica da tecnologia à aplicação prática em negócios e gestão de projetos.",
-      "Na Main - Soluções em Software, vejo de perto como um serviço de tecnologia nasce: da conversa com o cliente à entrega do projeto.",
-      "Na RR Transportes e Terraplanagem, levo esse olhar para a operação, transformando rotinas do dia a dia em sistemas internos e painéis de gestão.",
-      "Busco desafios que exijam pensamento analítico e conectem tecnologia a resultados reais, com o objetivo de me tornar engenheiro de dados."
+      "Estudante do 2º ano de Engenharia de Software na Universidade Estadual de Maringá (UEM), com foco em Engenharia de Dados, cloud e IA.",
+      "Na RR Transportes e Terraplanagem, trabalho em operações e desenvolvi o ERP de gestão de frota que a empresa usa hoje.",
+      "Na Main - Soluções em Software, faço estágio na área comercial e de projetos: prospecção, negociação de contratos, levantamento de requisitos e acompanhamento das entregas.",
+      "Na UEM, faço iniciação científica (PIBIC) com Teoria de Resposta ao Item e IA. Sou co-organizador do Cloud Native Maringá, que planeja levar eventos de cloud à universidade a partir de 2027."
     ],
     "facts": [
       {
         "label": "Foco",
-        "value": "Dados e Cloud"
+        "value": "Dados, cloud e IA"
       },
       {
         "label": "Base",
@@ -55,33 +60,47 @@
       "group": "Linguagens",
       "items": [
         "Python",
-        "JavaScript",
-        "C",
-        "HTML / CSS"
+        "SQL",
+        "JavaScript"
       ]
     },
     {
       "group": "Dados e backend",
       "items": [
         "FastAPI",
-        "SQLite"
+        "SQLite",
+        "Dashboards web"
+      ]
+    },
+    {
+      "group": "Infra",
+      "items": [
+        "Git",
+        "Linux",
+        "Deploy em VPS"
       ]
     },
     {
       "group": "Web e design",
       "items": [
-        "React",
+        "HTML",
+        "CSS",
+        "Astro",
         "Tailwind CSS",
         "Figma"
       ]
     },
     {
-      "group": "Cloud e ferramentas",
+      "group": "IA",
       "items": [
-        "Linux",
-        "Git",
-        "GitHub",
-        "Claude AI"
+        "Claude",
+        "Integração com LLMs"
+      ]
+    },
+    {
+      "group": "Estudando",
+      "items": [
+        "AWS"
       ]
     }
   ],
@@ -200,24 +219,42 @@
   ],
   "experience": [
     {
-      "role": "Assistente Comercial e de Projetos",
-      "company": "Main - Soluções em Software (estágio)",
-      "location": "Maringá, PR",
-      "period": "set. 2026 – atual",
-      "highlights": [
-        "Prospecção ativa de clientes B2B e elaboração de propostas comerciais",
-        "Negociação de projetos de tecnologia",
-        "Estruturação de requisitos e acompanhamento da execução dos projetos"
-      ]
-    },
-    {
       "role": "Assistente Administrativo de Operações",
       "company": "RR Transportes e Terraplanagem LTDA",
       "location": "Comodoro, MT (remoto)",
       "period": "ago. 2026 – atual",
       "highlights": [
         "Apoio à gestão diária das operações de transporte e maquinário pesado",
-        "Design de software e arquitetura web em sistemas internos e dashboards de fretes, abastecimento e custos operacionais"
+        "Desenvolvi o ERP de gestão de frota que a empresa usa hoje: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista"
+      ]
+    },
+    {
+      "role": "Área Comercial e Assistente de Projetos",
+      "company": "Main - Soluções em Software (estágio)",
+      "location": "Maringá, PR",
+      "period": "set. 2026 – atual",
+      "highlights": [
+        "Prospecção de clientes e negociação de contratos",
+        "Levantamento de requisitos com os clientes",
+        "Acompanhamento das entregas dos projetos"
+      ]
+    },
+    {
+      "role": "Iniciação Científica (PIBIC)",
+      "company": "Universidade Estadual de Maringá (UEM)",
+      "location": "Maringá, PR",
+      "period": "em andamento",
+      "highlights": [
+        "Pesquisa com Teoria de Resposta ao Item (TRI) e Inteligência Artificial"
+      ]
+    },
+    {
+      "role": "Co-organizador",
+      "company": "Cloud Native Maringá (CNCF)",
+      "location": "Maringá, PR",
+      "period": "nov. 2026 – atual",
+      "highlights": [
+        "Co-organização da comunidade local da CNCF, com o objetivo de trazer eventos de cloud à UEM a partir de 2027"
       ]
     },
     {
@@ -272,7 +309,15 @@
       "status": "done"
     },
     {
-      "title": "Certificação AWS Cloud Practitioner",
+      "title": "Trazer eventos de cloud para a UEM, com o Cloud Native Maringá (encontros a partir de 2027)",
+      "status": "doing"
+    },
+    {
+      "title": "PIBIC em TRI e IA",
+      "status": "doing"
+    },
+    {
+      "title": "AWS Certified Cloud Practitioner",
       "status": "doing"
     },
     {
@@ -284,15 +329,7 @@
       "status": "queued"
     },
     {
-      "title": "Comunidade tech de cloud na UEM",
-      "status": "queued"
-    },
-    {
       "title": "Projetos open source no GitHub",
-      "status": "queued"
-    },
-    {
-      "title": "PIBIC",
       "status": "queued"
     }
   ],
