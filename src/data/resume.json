@@ -96,7 +96,11 @@
     {
       "group": "IA",
       "items": [
-        "Integração com LLMs (Claude)"
+        "Claude",
+        "Gemini",
+        "Antigravity",
+        "DeepSeek",
+        "Integração com LLMs"
       ]
     }
   ],
