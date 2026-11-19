@@ -1,5 +1,5 @@
 // Logotipo de cada tecnologia, em public/icons/ (licenças em public/icons/LICENSES.txt).
-// Tag sem logotipo, ou com um que não se lê em 16 px (SQL, Alembic, nginx, APIs REST...), aparece só com o nome.
+// Tag sem logotipo, ou com um que não se lê em 16 px (SQL, Alembic, nginx...), aparece só com o nome.
 const ICONS = {
   Python: 'python',
   JavaScript: 'javascript',
