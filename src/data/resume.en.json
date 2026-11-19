@@ -108,7 +108,7 @@
     {
       "name": "Logistics ERP",
       "context": "RR Transportes e Terraplanagem",
-      "summary": "System that runs the operation of a trucking company: trips, costs, freight and maintenance, with a dashboard for the manager and an app for the driver that works without signal. It replaced spreadsheets, paper notes and WhatsApp messages in the management of a fleet of more than five trucks, which runs about 85 trips a month.",
+      "summary": "System that runs the operation of a trucking company: trips, costs, freight and maintenance, with a dashboard for the manager and an app for the driver that works without signal. It replaced spreadsheets, paper notes and WhatsApp messages in the management of a fleet of 9 trucks, which runs about 85 trips a month.",
       "highlights": [
         "Financial result per trip, with manager review, commissions and fuel, maintenance and ad-hoc costs backed by receipt photos",
         "Freight compared to the legal minimum rate (ANTT), with versioned tables updated from the official calculator",
@@ -158,7 +158,7 @@
       "status": "done",
       "deployment": "In production on a Linux VPS, with nginx, HTTPS (Let's Encrypt) and services isolated by systemd",
       "gallery": {
-        "label": "See the system screens",
+        "label": "See the case study and screens",
         "page": "erp/"
       }
     },
@@ -262,6 +262,7 @@
       "company": "Transportadora Modesto LTDA",
       "location": "Comodoro, Brazil",
       "period": "Dec 2022 – Feb 2026",
+      "summary": "Reviewed CT-e, MDF-e and delivery receipts for billing and logged fleet entries and exits: the routine the RR Transportes ERP later automated.",
       "highlights": [
         "Review of transport tax documents (CT-e, MDF-e and delivery receipts) for daily closing and billing",
         "Vehicle entry and exit control in spreadsheets, logging times, routes and incidents for fleet management",
@@ -274,6 +275,7 @@
       "company": "Modesto Comércio de Bebidas LTDA",
       "location": "Comodoro, Brazil",
       "period": "Jul 2021 – Jul 2022",
+      "summary": "Reviewed invoices and sales orders before billing and kept customer and supplier records.",
       "highlights": [
         "Review of invoices and sales orders before billing",
         "Maintenance of customer and supplier records in the system",

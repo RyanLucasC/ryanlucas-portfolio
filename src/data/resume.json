@@ -108,7 +108,7 @@
     {
       "name": "ERP Logístico",
       "context": "RR Transportes e Terraplanagem",
-      "summary": "Sistema que organiza a operação de uma transportadora: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista, que funciona sem sinal. Substituiu planilhas, anotações em papel e mensagens de WhatsApp no controle de uma frota com mais de cinco caminhões, que faz em média 85 viagens por mês.",
+      "summary": "Sistema que organiza a operação de uma transportadora: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista, que funciona sem sinal. Substituiu planilhas, anotações em papel e mensagens de WhatsApp no controle de uma frota de 9 caminhões, que faz em média 85 viagens por mês.",
       "highlights": [
         "Resultado financeiro por viagem (DRE), com conferência do gestor, comissões e custos de combustível, manutenção e gastos avulsos com foto do recibo",
         "Frete comparado ao piso mínimo legal (ANTT), com tabelas versionadas e atualizadas pela calculadora oficial",
@@ -158,7 +158,7 @@
       "deployment": "Em produção em VPS Linux, com nginx, HTTPS (Let's Encrypt) e serviços isolados pelo systemd",
       "architectureTitle": "Arquitetura em produção, em VPS Linux",
       "gallery": {
-        "label": "Ver as telas do sistema",
+        "label": "Ver o estudo de caso e as telas",
         "page": "erp/"
       }
     },
@@ -262,6 +262,7 @@
       "company": "Transportadora Modesto LTDA",
       "location": "Comodoro, MT",
       "period": "dez. 2022 – fev. 2026",
+      "summary": "Conferência de CT-e, MDF-e e canhotos para o faturamento e controle de entrada e saída da frota: a rotina que o ERP da RR Transportes depois automatizou.",
       "highlights": [
         "Conferência de documentos fiscais de transporte (CT-e, MDF-e e canhotos de entrega) para o fechamento diário e o faturamento",
         "Controle de entrada e saída de veículos em planilha, com horários, rotas e ocorrências para a gestão da frota",
@@ -274,6 +275,7 @@
       "company": "Modesto Comércio de Bebidas LTDA",
       "location": "Comodoro, MT",
       "period": "jul. 2021 – jul. 2022",
+      "summary": "Conferência de notas fiscais e pedidos antes do faturamento e cadastros de clientes e fornecedores.",
       "highlights": [
         "Conferência de notas fiscais e pedidos de venda antes do faturamento",
         "Atualização de cadastros de clientes e fornecedores no sistema",

@@ -25,6 +25,14 @@ const contactRows = [
   { label: t.email, handle: contact.email, url: `mailto:${contact.email}`, external: false },
   ...contact.links.map((link) => ({ ...link, external: true })),
 ];
+// O que está na fila fica recolhido: em destaque, só o que já foi feito ou está em andamento.
+const isQueued = (item: { status: string }) => item.status === 'queued';
+const later = {
+  goals: goals.filter(isQueued),
+  roadmap: roadmap.filter(isQueued),
+  certifications: certifications.filter(isQueued),
+};
+const laterCount = later.goals.length + later.roadmap.length + later.certifications.length;
 const nav = [
   { label: t.nav.projects, href: '#projetos' },
   { label: t.nav.experience, href: '#experiencia' },
@@ -113,9 +121,14 @@ const nav = [
                   <span class="mt-1 block font-normal text-body">{job.company}</span>
                 </th>
                 <td>
-                  <ul class="list-disc space-y-1 pl-4 text-body marker:text-accent">
-                    {job.highlights.map((item) => <li>{item}</li>)}
-                  </ul>
+                  {/* Cargos antigos aparecem resumidos no site; os detalhes ficam no PDF. */}
+                  {'summary' in job ? (
+                    <p class="text-body">{job.summary}</p>
+                  ) : (
+                    <ul class="list-disc space-y-1 pl-4 text-body marker:text-accent">
+                      {job.highlights.map((item) => <li>{item}</li>)}
+                    </ul>
+                  )}
                 </td>
               </tr>
             ))
@@ -144,7 +157,7 @@ const nav = [
 
     <section id="objetivos" class="section frame bg-surface" aria-labelledby="objetivos-titulo">
       <h2 id="objetivos-titulo" class="rise mb-10">{t.goals}</h2>
-      <KanbanBoard items={goals} lang={lang} />
+      <KanbanBoard items={goals} lang={lang} statuses={['done', 'doing']} />
     </section>
 
     <section id="roadmap" class="frame section" aria-labelledby="roadmap-titulo">
@@ -153,7 +166,7 @@ const nav = [
         <div class="rise">
           <DataTable caption={t.studyPath} headers={t.studyHeaders}>
             {
-              roadmap.map((row) => (
+              roadmap.filter((row) => !isQueued(row)).map((row) => (
                 <tr>
                   <th scope="row" class="whitespace-nowrap">{row.phase}</th>
                   <td class="text-ink!">{row.topic}</td>
@@ -167,7 +180,7 @@ const nav = [
         <div class="rise">
           <DataTable caption={t.certifications} headers={t.certificationHeaders}>
             {
-              certifications.map((row) => (
+              certifications.filter((row) => !isQueued(row)).map((row) => (
                 <tr>
                   <th scope="row">{row.name}</th>
                   <td class="cell-end"><StatusBadge status={row.status} lang={lang} /></td>
@@ -177,6 +190,46 @@ const nav = [
           </DataTable>
         </div>
       </div>
+      {
+        laterCount > 0 && (
+          <details class="group rise mt-12 bg-surface">
+            <summary class="flex cursor-pointer list-none items-baseline justify-between gap-4 px-5 py-4 hover:text-accent md:px-7 md:py-5 [&::-webkit-details-marker]:hidden">
+              <span class="text-lead leading-none font-medium tracking-tight">{t.queued}</span>
+              <span class="flex items-baseline gap-4 text-small text-muted">
+                {t.queuedCount(laterCount)}
+                <span aria-hidden="true" class="text-lead leading-none text-ink transition-transform group-open:rotate-45">+</span>
+              </span>
+            </summary>
+            <div class="grid gap-8 px-5 pt-2 pb-6 text-small md:px-7 md:pb-8 lg:grid-cols-[2fr_1fr_1fr]">
+              {later.roadmap.length > 0 && (
+                <div>
+                  <h3 class="mb-3 text-muted">{t.studyPath}</h3>
+                  <ul class="space-y-2">
+                    {later.roadmap.map((row) => (
+                      <li>
+                        <span class="text-ink">{row.phase} · {row.topic}</span>
+                        <span class="block text-body">{row.courses.join(' · ')}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {later.certifications.length > 0 && (
+                <div>
+                  <h3 class="mb-3 text-muted">{t.certifications}</h3>
+                  <ul class="space-y-2 text-ink">{later.certifications.map((row) => <li>{row.name}</li>)}</ul>
+                </div>
+              )}
+              {later.goals.length > 0 && (
+                <div>
+                  <h3 class="mb-3 text-muted">{t.goals}</h3>
+                  <ul class="space-y-2 text-ink">{later.goals.map((row) => <li>{row.title}</li>)}</ul>
+                </div>
+              )}
+            </div>
+          </details>
+        )
+      }
     </section>
 
     <section id="curriculo" class="section frame grid items-center gap-10 bg-surface md:grid-cols-[3fr_2fr]" aria-labelledby="curriculo-titulo">

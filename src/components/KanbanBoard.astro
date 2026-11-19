@@ -3,16 +3,21 @@ import StatusBadge from './StatusBadge.astro';
 import { STATUS } from '../lib/status.mjs';
 import { UI } from '../lib/i18n.mjs';
 
-const { items, lang = 'pt' } = Astro.props as { items: { title: string; status: string }[]; lang?: 'pt' | 'en' };
+const {
+  items,
+  lang = 'pt',
+  statuses = ['done', 'doing', 'queued'],
+} = Astro.props as { items: { title: string; status: string }[]; lang?: 'pt' | 'en'; statuses?: string[] };
 // Classes, não style inline: a CSP do site bloqueia atributos style.
 const stagger = ['[--stagger:0]', '[--stagger:1]', '[--stagger:2]'];
-const columns = ['done', 'doing', 'queued'].map((status) => ({
+const grid = statuses.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3';
+const columns = statuses.map((status) => ({
   status,
   items: items.filter((item) => item.status === status),
 }));
 ---
 
-<div class="grid gap-3 md:grid-cols-3">
+<div class:list={['grid gap-3', grid]}>
   {
     columns.map((column, i) => (
       <section

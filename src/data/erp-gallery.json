@@ -98,12 +98,49 @@
     ]
   },
   "pt": {
-    "title": "ERP Logístico: telas do sistema",
     "intro": "O painel do gestor e o app do motorista, tela a tela, com dados fictícios de demonstração. Mesmo assim, CPF e CNH dos motoristas aparecem desfocados.",
     "back": "Voltar ao portfólio",
     "open": "Abrir em tamanho real",
     "screens": "telas",
     "jump": "Ir para",
+    "case": {
+      "title": "ERP Logístico: estudo de caso",
+      "lead": "O sistema que hoje organiza a operação da RR Transportes e Terraplanagem: o problema, as decisões técnicas e o resultado. As telas vêm logo depois.",
+      "labels": {
+        "problem": "O problema",
+        "decisions": "Decisões técnicas",
+        "result": "Resultado",
+        "code": "Código",
+        "screens": "Telas do sistema"
+      },
+      "problem": [
+        "A operação de 9 caminhões, com cerca de 85 viagens por mês, era controlada em planilhas, anotações em papel e mensagens de WhatsApp.",
+        "Para saber quanto cada viagem deu de resultado, se o frete cobria o piso mínimo da ANTT ou quando vencia um documento ou uma manutenção, era preciso juntar informação espalhada."
+      ],
+      "decisions": [
+        {
+          "title": "App que funciona sem sinal",
+          "text": "Os motoristas passam boa parte do tempo na estrada, sem internet. Por isso o app é um PWA offline: o motorista lança a ficha, a despesa ou o abastecimento mesmo sem sinal."
+        },
+        {
+          "title": "Um servidor, um banco",
+          "text": "FastAPI e SQLite numa única VPS Linux, atrás do nginx. Para o volume de uma frota desse porte, basta e deixa poucas peças para manter. A segurança dos dados vem do backup diário e do teste semanal de restauração."
+        },
+        {
+          "title": "Tabelas da ANTT versionadas",
+          "text": "O piso mínimo do frete muda a cada resolução da ANTT. Cada viagem é comparada com a tabela vigente na data dela, então um reajuste novo não altera o histórico."
+        },
+        {
+          "title": "Conferência antes do resultado",
+          "text": "O que o motorista lança chega ao painel para o gestor conferir, com foto do recibo. Só depois da conferência o valor entra no resultado da viagem e na comissão."
+        }
+      ],
+      "result": [
+        "Em produção e em uso diário: substituiu as planilhas, o papel e o WhatsApp no controle da frota.",
+        "O gestor vê o resultado financeiro de cada viagem e de cada caminhão, e os alertas de vencimento e de manutenção chegam por notificação."
+      ],
+      "code": "O código é privado, porque o sistema está em uso pela empresa. Posso mostrá-lo numa entrevista."
+    },
     "sections": [
       {
         "id": "painel",
@@ -268,12 +305,49 @@
     ]
   },
   "en": {
-    "title": "Logistics ERP: system screens",
     "intro": "The manager dashboard and the driver app, screen by screen, with fictional demo data. The interface is in Portuguese, and driver ID and license numbers are blurred anyway.",
     "back": "Back to the portfolio",
     "open": "Open full size",
     "screens": "screens",
     "jump": "Jump to",
+    "case": {
+      "title": "Logistics ERP: case study",
+      "lead": "The system that now runs operations at RR Transportes e Terraplanagem: the problem, the technical decisions and the outcome. The screens follow right after.",
+      "labels": {
+        "problem": "The problem",
+        "decisions": "Technical decisions",
+        "result": "Outcome",
+        "code": "Code",
+        "screens": "System screens"
+      },
+      "problem": [
+        "The operation of 9 trucks, running about 85 trips a month, was managed with spreadsheets, paper notes and WhatsApp messages.",
+        "Finding out how much each trip earned, whether the freight covered the ANTT legal minimum, or when a document or a maintenance was due meant piecing together scattered information."
+      ],
+      "decisions": [
+        {
+          "title": "An app that works offline",
+          "text": "Drivers spend much of their time on the road without internet. So the app is an offline PWA: drivers submit trip sheets, expenses and refueling even with no signal."
+        },
+        {
+          "title": "One server, one database",
+          "text": "FastAPI and SQLite on a single Linux VPS, behind nginx. For a fleet this size it is enough and leaves few moving parts to maintain. Data safety comes from daily backups and a weekly restore test."
+        },
+        {
+          "title": "Versioned ANTT tables",
+          "text": "The freight minimum changes with every ANTT resolution. Each trip is compared against the table in force on its date, so a new adjustment never rewrites history."
+        },
+        {
+          "title": "Review before results",
+          "text": "What drivers submit reaches the dashboard for the manager to review, with a photo of the receipt. Only after review does the amount count toward the trip result and the commission."
+        }
+      ],
+      "result": [
+        "In production and in daily use: it replaced spreadsheets, paper and WhatsApp in fleet management.",
+        "The manager sees the financial result of each trip and each truck, and expiry and maintenance alerts arrive as notifications."
+      ],
+      "code": "The code is private because the company uses the system in production. I can walk through it in an interview."
+    },
     "sections": [
       {
         "id": "painel",
