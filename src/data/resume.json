@@ -36,9 +36,9 @@
   "about": {
     "summary": [
       "Estudante do 2º ano de Engenharia de Software na Universidade Estadual de Maringá (UEM), com foco em Engenharia de Dados, cloud e IA.",
-      "Na RR Transportes e Terraplanagem, trabalho em operações e desenvolvi o ERP de gestão de frota que a empresa usa hoje.",
-      "Na Main - Soluções em Software, faço estágio na área comercial e de projetos: prospecção, negociação de contratos, levantamento de requisitos e acompanhamento das entregas.",
-      "Na UEM, faço iniciação científica (PIBIC) com Teoria de Resposta ao Item e IA. Sou co-organizador do Cloud Native Maringá, que planeja levar eventos de cloud à universidade a partir de 2027."
+      "Na RR Transportes e Terraplanagem, criei o sistema de gestão (ERP) que a empresa usa hoje para controlar viagens, custos e pagamentos da frota.",
+      "Na Main - Soluções em Software, faço estágio comercial e de projetos: prospecto clientes, negocio contratos, levanto requisitos e acompanho as entregas.",
+      "Na UEM, faço iniciação científica (PIBIC) em Teoria de Resposta ao Item e IA e co-organizo o Cloud Native Maringá, comunidade que vai levar eventos de cloud à universidade a partir de 2027."
     ],
     "facts": [
       {
@@ -69,38 +69,34 @@
       "items": [
         "FastAPI",
         "SQLite",
-        "Dashboards web"
+        "Alembic",
+        "APIs REST"
       ]
     },
     {
-      "group": "Infra",
+      "group": "Infra, testes e CI",
       "items": [
-        "Git",
         "Linux",
-        "Deploy em VPS"
+        "nginx",
+        "Git",
+        "pytest",
+        "Playwright",
+        "GitHub Actions"
       ]
     },
     {
-      "group": "Web e design",
+      "group": "Web",
       "items": [
         "HTML",
         "CSS",
         "Astro",
-        "Tailwind CSS",
-        "Figma"
+        "Tailwind CSS"
       ]
     },
     {
       "group": "IA",
       "items": [
-        "Claude",
-        "Integração com LLMs"
-      ]
-    },
-    {
-      "group": "Estudando",
-      "items": [
-        "AWS"
+        "Integração com LLMs (Claude)"
       ]
     }
   ],
@@ -108,14 +104,13 @@
     {
       "name": "ERP Logístico",
       "context": "RR Transportes e Terraplanagem",
-      "summary": "Sistema que organiza a operação de uma transportadora: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista, que funciona sem sinal. Substituiu planilhas, anotações em papel e mensagens de WhatsApp no controle de uma frota de 9 caminhões, que faz em média 85 viagens por mês.",
+      "summary": "Sistema que desenvolvi e coloquei em produção na RR Transportes. A empresa não tinha controle real do dinheiro que entrava e saía: viagens, custos e fretes de 9 caminhões, cerca de 85 viagens por mês, ficavam em planilhas, papel e WhatsApp. Hoje o gestor acompanha tudo num painel e os motoristas lançam os dados pelo celular, mesmo sem sinal. Com isso, a conferência do financeiro no dia do pagamento caiu de 8 para 3 horas, ou seja, 62,5% menos tempo.",
       "highlights": [
-        "Resultado financeiro por viagem (DRE), com conferência do gestor, comissões e custos de combustível, manutenção e gastos avulsos com foto do recibo",
-        "Frete comparado ao piso mínimo legal (ANTT), com tabelas versionadas e atualizadas pela calculadora oficial",
-        "Alertas de vencimento e de manutenção por km, com notificações push",
-        "Segurança: senhas com scrypt, sessões revogáveis, bloqueio por tentativas e CSP restritiva",
-        "Auditoria de alterações, backup diário e teste semanal de restauração",
-        "Testes automatizados (pytest e Playwright) e CI no GitHub Actions, com verificação de dependências"
+        "Mostra em painéis e gráficos o resultado de cada viagem e de cada caminhão, com foto dos comprovantes",
+        "Compara cada frete com o piso mínimo legal da ANTT, usando a tabela vigente na data da viagem",
+        "Avisa por notificação quando um documento vai vencer ou uma manutenção está próxima",
+        "Protege os dados com senhas criptografadas (scrypt), bloqueio por tentativas, auditoria e backup diário testado",
+        "Testes automatizados (pytest e Playwright) e integração contínua no GitHub Actions"
       ],
       "architecture": [
         {
@@ -165,12 +160,12 @@
     {
       "name": "Este portfólio",
       "context": "Resume as Code",
-      "summary": "Site bilíngue e currículo em PDF gerados a partir de um único arquivo de dados por idioma. Atualizar o portfólio é editar esse arquivo: o build valida o conteúdo e gera todo o resto.",
+      "summary": "Site bilíngue e currículo em PDF gerados a partir de um único arquivo de dados por idioma. Para atualizar o portfólio, basta editar esse arquivo: o build confere o conteúdo e gera o resto.",
       "highlights": [
-        "Validação no build: telefone, endereço, HTML, credenciais e links sem HTTPS impedem a publicação",
-        "Currículo em PDF no estilo LaTeX, gerado automaticamente, com prévia sempre atualizada no site",
-        "Nuvens em ASCII geradas por código: volumes 3D iluminados, com cor por caractere",
-        "Sem JavaScript no site, com CSP rígida, cabeçalhos de segurança e foto sem metadados",
+        "Bloqueia a publicação se encontrar telefone, endereço, senha, HTML ou link sem HTTPS nos dados",
+        "Gera o currículo em PDF no estilo LaTeX, com prévia sempre atualizada no site",
+        "Desenha as nuvens em ASCII por código, com volume 3D e cor por caractere",
+        "Funciona sem JavaScript, com política de segurança rígida (CSP) e foto sem metadados",
         "Nota 100 no Lighthouse em desempenho, acessibilidade, boas práticas e SEO"
       ],
       "tags": [
@@ -224,8 +219,9 @@
       "location": "Comodoro, MT (remoto)",
       "period": "ago. 2026 – atual",
       "highlights": [
-        "Apoio à gestão diária das operações de transporte e maquinário pesado",
-        "Desenvolvi o ERP de gestão de frota que a empresa usa hoje: viagens, custos, fretes e manutenção, com painel para o gestor e app para o motorista"
+        "Desenvolvi e implantei o ERP que deu à empresa controle real das receitas e despesas da frota (9 caminhões, cerca de 85 viagens por mês), antes espalhadas em planilhas, papel e WhatsApp",
+        "Reduzi de 8 h para 3 h a conferência do financeiro no dia do pagamento, ou seja, 62,5% menos tempo, com comissões e despesas já calculadas",
+        "Apoio a gestão diária das operações de transporte e de maquinário pesado"
       ]
     },
     {
@@ -234,9 +230,9 @@
       "location": "Maringá, PR",
       "period": "set. 2026 – atual",
       "highlights": [
-        "Prospecção de clientes e negociação de contratos",
-        "Levantamento de requisitos com os clientes",
-        "Acompanhamento das entregas dos projetos"
+        "Prospecto clientes e negocio contratos de projetos de software",
+        "Levanto requisitos com os clientes no início de cada projeto",
+        "Acompanho as entregas junto aos clientes até a conclusão"
       ]
     },
     {
@@ -245,16 +241,7 @@
       "location": "Maringá, PR",
       "period": "em andamento",
       "highlights": [
-        "Pesquisa com Teoria de Resposta ao Item (TRI) e Inteligência Artificial"
-      ]
-    },
-    {
-      "role": "Co-organizador",
-      "company": "Cloud Native Maringá (CNCF)",
-      "location": "Maringá, PR",
-      "period": "nov. 2026 – atual",
-      "highlights": [
-        "Co-organização da comunidade local da CNCF, com o objetivo de trazer eventos de cloud à UEM a partir de 2027"
+        "Pesquisa com Teoria de Resposta ao Item (TRI), o modelo estatístico usado no ENEM, e Inteligência Artificial"
       ]
     },
     {
@@ -262,12 +249,10 @@
       "company": "Transportadora Modesto LTDA",
       "location": "Comodoro, MT",
       "period": "dez. 2022 – fev. 2026",
-      "summary": "Conferência de CT-e, MDF-e e canhotos para o faturamento e controle de entrada e saída da frota: a rotina que o ERP da RR Transportes depois automatizou.",
+      "summary": "Conferi CT-e, MDF-e e canhotos para o faturamento e registrei a entrada e a saída da frota: a rotina que depois automatizei no ERP da RR Transportes.",
       "highlights": [
-        "Conferência de documentos fiscais de transporte (CT-e, MDF-e e canhotos de entrega) para o fechamento diário e o faturamento",
-        "Controle de entrada e saída de veículos em planilha, com horários, rotas e ocorrências para a gestão da frota",
-        "Conferência e manutenção do parque de máquinas: computadores, impressoras e equipamentos de escritório",
-        "Organização do arquivo fiscal e de pastas funcionais para consultas e auditorias internas"
+        "Conferi CT-e, MDF-e e canhotos de entrega para o fechamento diário e o faturamento",
+        "Registrei a entrada e a saída dos veículos, com horários, rotas e ocorrências, para o controle da frota"
       ]
     },
     {
@@ -275,11 +260,21 @@
       "company": "Modesto Comércio de Bebidas LTDA",
       "location": "Comodoro, MT",
       "period": "jul. 2021 – jul. 2022",
-      "summary": "Conferência de notas fiscais e pedidos antes do faturamento e cadastros de clientes e fornecedores.",
+      "summary": "Conferi notas fiscais e pedidos antes do faturamento e mantive os cadastros de clientes e fornecedores.",
       "highlights": [
-        "Conferência de notas fiscais e pedidos de venda antes do faturamento",
-        "Atualização de cadastros de clientes e fornecedores no sistema",
-        "Planilhas de controle e organização de pedidos entre o comercial e o depósito"
+        "Conferi notas fiscais e pedidos de venda antes do faturamento",
+        "Mantive atualizados os cadastros de clientes e fornecedores no sistema"
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "role": "Co-organizador",
+      "company": "Cloud Native Maringá (CNCF)",
+      "location": "Maringá, PR",
+      "period": "nov. 2026 – atual",
+      "highlights": [
+        "Co-organizo a comunidade local da CNCF, que vai levar encontros sobre cloud à UEM a partir de 2027"
       ]
     }
   ],
@@ -412,13 +407,5 @@
       ],
       "status": "queued"
     }
-  ],
-  "softSkills": [
-    "Resolução de Problemas",
-    "Organização e Planejamento",
-    "Comunicação Clara",
-    "Trabalho em Equipe",
-    "Facilidade para Aprender",
-    "Proatividade"
   ]
 }

@@ -54,12 +54,15 @@ const Skill = (label, text) => Bullet([h(Text, { style: s.strong, key: 'label' }
 
 export function ResumeDocument({ resume, lang }) {
   const t = UI[lang];
-  const { person, contact, stack, projects, experience, education, languages, certifications, softSkills } = resume;
+  const { person, contact, stack, projects, experience, leadership, education, languages, certifications } = resume;
   const contactParts = [person.location, ...(contact.email ? [contact.email] : [])];
   // Instagram fica só no site: na linha de contato do PDF não há espaço para ele.
   const links = contact.links.filter((l) => l.label !== 'Instagram').map((l) => ({ ...l, text: l.url.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '') }));
   // A MAIN já aparece em Experiência, com o mesmo conteúdo.
   const delivered = projects.filter((p) => p.status === 'done');
+  // Só o que existe ou está em andamento: certificação na fila não entra no currículo.
+  const current = certifications.filter((c) => c.status !== 'queued');
+  const label = (status) => STATUS[status].label[lang].toLowerCase();
 
   return h(
     Document,
@@ -78,17 +81,10 @@ export function ResumeDocument({ resume, lang }) {
         ]),
       ),
 
+      // Estudante: formação primeiro. A experiência dá o contexto do ERP; o projeto mostra a parte técnica.
       Section(
-        t.pdf.projects,
-        ...delivered.map((p) =>
-          Entry({
-            title: p.name,
-            place: STATUS[p.status].label[lang].toLowerCase().replace(/^./, (c) => c.toUpperCase()),
-            subtitle: `${p.context} · ${p.tags.join(', ')}`,
-            items: [p.summary, ...p.highlights, p.deployment],
-            key: p.name,
-          }),
-        ),
+        t.pdf.education,
+        ...education.map((e) => Entry({ title: e.school, place: e.place, subtitle: e.course, period: e.period, key: e.course })),
       ),
 
       Section(
@@ -99,16 +95,30 @@ export function ResumeDocument({ resume, lang }) {
       ),
 
       Section(
-        t.pdf.skills,
-        ...stack.map((g) => Skill(g.group, `${g.items.join(', ')}.`)),
-        Skill(t.certifications, `${certifications.map((c) => c.name).join(', ')}.`),
-        Skill(t.pdf.soft, `${softSkills.join(', ')}.`),
-        Skill(t.pdf.languages, `${languages.map((l) => `${l.name}: ${l.level}`).join('; ')}.`),
+        t.pdf.projects,
+        ...delivered.map((p) =>
+          Entry({
+            title: p.name,
+            place: label(p.status).replace(/^./, (c) => c.toUpperCase()),
+            subtitle: `${p.context} · ${p.tags.join(', ')}`,
+            items: [...p.highlights, p.deployment],
+            key: p.name,
+          }),
+        ),
       ),
 
       Section(
-        t.pdf.education,
-        ...education.map((e) => Entry({ title: e.school, place: e.place, subtitle: e.course, period: e.period, key: e.course })),
+        t.leadership,
+        ...leadership.map((e) =>
+          Entry({ title: e.company, place: e.location, subtitle: e.role, period: e.period, items: e.highlights, key: e.company }),
+        ),
+      ),
+
+      Section(
+        t.pdf.skills,
+        ...stack.map((g) => Skill(g.group, `${g.items.join(', ')}.`)),
+        ...(current.length ? [Skill(t.pdf.certifications, `${current.map((c) => `${c.name} (${label(c.status)})`).join(', ')}.`)] : []),
+        Skill(t.pdf.languages, `${languages.map((l) => `${l.name}: ${l.level}`).join('; ')}.`),
       ),
     ),
   );

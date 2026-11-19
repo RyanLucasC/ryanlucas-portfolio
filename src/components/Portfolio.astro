@@ -15,7 +15,7 @@ import manifest from '../../public/generated/manifest.json';
 const { lang } = Astro.props as { lang: 'pt' | 'en' };
 const resume = lang === 'en' ? en : pt;
 const t = UI[lang];
-const { person, contact, about, stack, projects, experience, goals, certifications, roadmap, meta } = resume;
+const { person, contact, about, stack, projects, experience, leadership, goals, certifications, roadmap, meta } = resume;
 const [firstLine, secondLine] = ['RYAN LUCAS', 'CARDOSO'];
 const pdfHref = `/${meta.pdfFile}`;
 const pdfSize = `${Math.round(manifest[lang].pdfBytes / 1024)} KB`;
@@ -130,6 +130,22 @@ const nav = [
                     </ul>
                   )}
                 </td>
+              </tr>
+            ))
+          }
+        </DataTable>
+      </div>
+      <div class="rise mt-16">
+        <DataTable caption={t.leadership} headers={t.experienceHeaders}>
+          {
+            leadership.map((item) => (
+              <tr>
+                <td class="whitespace-nowrap">{item.period}</td>
+                <th scope="row">
+                  {item.role}
+                  <span class="mt-1 block font-normal text-body">{item.company}</span>
+                </th>
+                <td class="text-body">{item.highlights.join(' ')}</td>
               </tr>
             ))
           }
