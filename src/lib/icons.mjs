@@ -8,7 +8,6 @@ const ICONS = {
   Linux: 'linux',
   Git: 'git',
   pytest: 'pytest',
-  Playwright: 'playwright',
   'GitHub Actions': 'githubactions',
   HTML: 'html5',
   CSS: 'css3',

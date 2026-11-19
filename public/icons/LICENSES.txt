@@ -2,7 +2,7 @@
 
 Devicon (https://devicon.dev), licença MIT, Copyright (c) 2015 konpa:
 python, javascript, fastapi, sqlite, linux, git, astro, tailwindcss, html5, css3,
-pytest, githubactions, playwright, nodejs, react.
+pytest, githubactions, nodejs, react.
 
 Lobe Icons (https://github.com/lobehub/lobe-icons), licença MIT, Copyright (c) LobeHub:
 claude, gemini, antigravity, deepseek.

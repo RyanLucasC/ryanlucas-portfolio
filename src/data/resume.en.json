@@ -80,7 +80,6 @@
         "nginx",
         "Git",
         "pytest",
-        "Playwright",
         "GitHub Actions"
       ]
     },
